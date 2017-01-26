@@ -1,5 +1,4 @@
 <template>
-
   <div id="app">
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
@@ -20,6 +19,7 @@ export default {
 }
 </script>
 
+<style src="./stylesheets/main.scss"></style>
 <style lang='scss'>
 .location {
   width: 50%;
