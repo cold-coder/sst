@@ -21,10 +21,10 @@ module.exports = {
             // other preprocessors should work out of the box, no loader config like this nessessary.
             'scss': 'vue-style-loader!css-loader!sass-loader',
             'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
-            'css': ExtractTextPlugin.extract({
-              loader: 'css-loader',
-              fallbackLoader: 'vue-style-loader'
-            })
+            // 'css': ExtractTextPlugin.extract({
+            //   loader: 'css-loader',
+            //   fallbackLoader: 'vue-style-loader'
+            // })
           }
           // other vue-loader options go here
         }
@@ -79,6 +79,6 @@ if (process.env.NODE_ENV === 'production') {
   ])
 }
 
-module.exports.plugins = (module.exports.plugins || []).concat([
-  new ExtractTextPlugin("style.css")
-])
+// module.exports.plugins = (module.exports.plugins || []).concat([
+//   new ExtractTextPlugin("style.css")
+// ])

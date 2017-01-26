@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <div class="location"></div>
-    <button type="button" class="btn">Pure button</button>
+    <side-menu></side-menu>
+
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import SideMenu from './component/side-menu.vue'
 export default {
   name: 'app',
+  components: {
+    SideMenu
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -19,14 +21,33 @@ export default {
 }
 </script>
 
-<style src="./stylesheets/main.scss"></style>
+<style src="purecss"></style>
 <style lang='scss'>
-.location {
-  width: 50%;
-  height: 200px;
-  margin: 0 auto;
-  background-image: url(./assets/map.png);
-  background-repeat: no-repeat;
-  background-position: center center;
+#app {
+  position: relative;
+  padding-left: 150px;
+}
+#app, .side-menu__menu, .side-menu__link {
+  transition: all .2s ease-out;
+}
+@media (max-width: 48em) {
+  #app {
+    padding-left: 0;
+  }
+  .side-menu__link {
+    display: block !important;
+  }
+  .side-menu__menu {
+    transform: translateX(-150px);
+  }
+}
+#app.active {
+  padding-left: 0;
+  .side-menu__link{
+    display: block !important;
+  }
+  .side-menu__menu {
+    transform: translateX(-150px);
+  }
 }
 </style>

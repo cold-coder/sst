@@ -5,8 +5,8 @@
   "author": "Yao Cheng <sz.yaocheng@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "dependencies": {
     "purecss": "^0.6.2",
