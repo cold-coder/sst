@@ -45,19 +45,20 @@ export default {
   },
   methods: {
     toggleMenu: () => {
-      document.getElementById("app").classList.toggle("active")
+      document.getElementById("app").classList.toggle("show-menu")
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import "../stylesheets/_variable.scss";
 .side-menu {
   &__link {
     position: fixed;
     left: 0;
     top: 0;
-    display: none;
+    display: block;
     background-color: #000;
     background-color: rgba(0,0,0,.7);
     font-size: 10px;
@@ -65,9 +66,6 @@ export default {
     width: 2em;
     height: auto;
     padding: 2.1em 1.6em;
-    &:hover {
-      background-color: #000;
-    }
     span, span:before, span:after {
       background-color: #FFF;
       width: 100%;
@@ -94,9 +92,9 @@ export default {
     margin-top: 0;
     list-style: none;
     padding-left: 0;
-    // margin-left: -150px;
     left: 0;
-    width: 150px;
+    width: $menu-width;
+    transform: translateX(-$menu-width);
     bottom: 0;
     z-index: 100;
     background-image: linear-gradient(to bottom,#081F2F, #0C283A,#283F4C);
@@ -156,13 +154,5 @@ export default {
       }
     }
   }
-  // @media (max-width: 48em) {
-  //   &__link {
-  //     display: block;
-  //   }
-  //   &__menu {
-  //     transform: translateX(-150px);
-  //   }
-  // }
 }
 </style>
