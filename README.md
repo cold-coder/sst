@@ -38,7 +38,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Route Mgnt| 0%|
 |State Mgnt| 0%|
 |Style| 0%|
-|Layout| 80%|
+|Layout| 100%|
 |i18n| 0%|
 |Filter| 0%|
 |Config Mgnt| 0%|
@@ -49,6 +49,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Toast| 0%|
 |Confirm| 0%|
 |Side Menu| 100%|
+|Nav Bar| 70%|
 |Pagination| 0%|
 |Image Uploader| 0%|
 |Scroll Loader| 0%|
@@ -61,7 +62,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ##### Pages
 |Task|Progress|
 |----|--------|
-|Login| 0%|
+|Login| 50%|
 |Dashboard| 0%|
 |Campaign| 0%|
 |Campaign Detail| 0%|

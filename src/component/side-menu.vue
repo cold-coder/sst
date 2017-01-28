@@ -6,7 +6,8 @@
     <ul class="side-menu__menu">
       <div class="side-menu__menu-heading"></div>
       <div class="side-menu__menu-scan"></div>
-      <router-link v-for="item in menuItem" :to="item.link" class="side-menu__menu-item">
+      <router-link v-for="item in menuItem" :to="item.link"
+       class="side-menu__menu-item" :class="{ 'side-menu__menu-item--active': $route.path.indexOf(item.key)>-1 }">
         <div :class="item.icon"></div>
         <span v-text="item.name"></span>
       </router-link>
@@ -22,23 +23,27 @@ export default {
       menuItem: [
         {
           name: "业务管理",
-          link: "/activity",
-          icon: "business"
+          link: "/business/campaign",
+          icon: "business",
+          key: "business"
         },
         {
           name: "工作台",
           link: "/dashboard",
-          icon: "dashboard"
+          icon: "dashboard",
+          key: "dashboard"
         },
         {
           name: "基本设置",
           link: "/shop",
-          icon: "shop"
+          icon: "shop",
+          key: "shop"
         },
         {
           name: "登录",
           link: "/login",
-          icon: "business"
+          icon: "business",
+          key: "login"
         }
       ]
     }
@@ -63,13 +68,13 @@ export default {
     background-color: rgba(0,0,0,.7);
     font-size: 10px;
     z-index: 10;
-    width: 2em;
+    width: 62px;
     height: auto;
-    padding: 2.1em 1.6em;
+    padding: 25px 19px;
     span, span:before, span:after {
       background-color: #FFF;
       width: 100%;
-      height: .2em;
+      height: 2.4px;
     }
     span {
       position: relative;
@@ -79,10 +84,10 @@ export default {
         position: absolute;
       }
       &:before {
-        margin-top: -.6em;
+        margin-top: -.9em;
       }
       &:after {
-        margin-top: .6em;
+        margin-top: .9em;
       }
     }
   }
@@ -91,6 +96,7 @@ export default {
     top: 0;
     margin-top: 0;
     list-style: none;
+    height: 100%;
     padding-left: 0;
     left: 0;
     width: $menu-width;
@@ -99,11 +105,11 @@ export default {
     z-index: 100;
     background-image: linear-gradient(to bottom,#081F2F, #0C283A,#283F4C);
     &-heading {
-      height: 9rem;
-      background:transparent url('image/LOGO-Smartac.png') center center no-repeat / 70%;
+      height: 150px;
+      background:transparent url('../assets/LOGO-Smartac.png') center center no-repeat / 70%;
     }
     &-scan {
-      height: 5rem;
+      height: 75px;
       background:transparent url('image/icon-scan.png') center center no-repeat / 35%;
       position: relative;
       &:before, &:after {
@@ -123,9 +129,9 @@ export default {
       text-align: center;
       text-decoration: none;
       color: #C6CFDF;
-      font-size: smaller;
+      font-size: 14px;
       div {
-        height: 4.5rem;
+        height: 75px;
         background-position: center 90%;
         background-size: 30%;
         background-repeat: no-repeat;
@@ -139,18 +145,18 @@ export default {
       div.shop {
         background-image: url('image/icon-shop.png');
       }
-    }
-    &-item.router-link-active {
-      color: #FFB700;
-      font-size: initial;
-      div.business {
-        background-image: url('image/icon-business-selected.png');
-      }
-      div.dashboard {
-        background-image: url('image/icon-dashboard-selected.png');
-      }
-      div.shop {
-        background-image: url('image/icon-shop-selected.png');
+      &--active {
+        color: $secondary-yellow;
+        font-size: 15px;
+        div.business {
+          background-image: url('image/icon-business-selected.png');
+        }
+        div.dashboard {
+          background-image: url('image/icon-dashboard-selected.png');
+        }
+        div.shop {
+          background-image: url('image/icon-shop-selected.png');
+        }
       }
     }
   }

@@ -2,7 +2,7 @@
   <div id="app">
     <side-menu></side-menu>
 
-    <router-view></router-view>
+    <router-view class="main"></router-view>
   </div>
 </template>
 
@@ -24,12 +24,19 @@ export default {
 <style src="purecss"></style>
 <style lang='scss'>
 @import "./stylesheets/_variable.scss";
+@import "./stylesheets/main.scss";
 #app {
   position: relative;
   padding-left: 0;
+  height: 100%;
 }
 #app, .side-menu__menu, .side-menu__link {
   transition: all .2s ease-out;
+}
+.main {
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #EEE;
 }
 @media (min-width: 48em) {
   #app {
@@ -44,7 +51,7 @@ export default {
 }
 
 .show-menu {
-  padding-left: $menu-width;
+  padding-left: $menu-width !important;
   .side-menu__link {
     display: block !important;
     transform: translateX($menu-width) !important;

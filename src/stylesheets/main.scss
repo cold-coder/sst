@@ -1,3 +1,47 @@
 @charset "UTF-8";
+@import "mixins/_utilities";
+html {
+    font-size: 50px;
+}
 
-@import "./_btn.scss";
+@media (min-width: 1536px) {
+    html {
+        font-size: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 37.5px;
+    }
+}
+
+* {
+    @include border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+    font-family: "Times New Roman", "Microsoft YaHei", STXihei, serif;
+}
+
+.clearfix,
+.container {
+    @include clearfix;
+}
+
+input[type='search'],input[type='text'],input[type='date'],input[type='number'] {
+  font-size: 14px;
+}
+
+*:focus {
+    outline: none;
+}
+
+@import "elements/_btn.scss";
