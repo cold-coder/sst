@@ -25,7 +25,8 @@ module.exports = {
             //   loader: 'css-loader',
             //   fallbackLoader: 'vue-style-loader'
             // })
-          }
+          },
+          postcss: [require('autoprefixer')]
           // other vue-loader options go here
         }
       },
