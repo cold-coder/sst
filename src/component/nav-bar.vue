@@ -2,9 +2,11 @@
   <div class="nav-bar">
     <ul class="nav-bar__bar">
       <router-link v-for="(item, index) in barItems" :to="item.link"
-      class="nav-bar__bar-item" :class="{ 'nav-bar__bar-item--active': index===active}">
-        <div :class="item.icon"></div>
+      class="nav-bar__bar-item"
+      :class="[ 'nav-bar__bar-item--'+item.icon, { 'nav-bar__bar-item--active': index===active }]">
+        <div class="icon"></div>
         <h5 v-text="item.name"></h5>
+        <div class="indicator" v-show="index===active"></div>
       </router-link>
     </ul>
   </div>
@@ -25,27 +27,27 @@ export default {
         {
           name: "交易信息",
           link: "/business/trade",
-          icon: "activity"
+          icon: "trade"
         },
         {
           name: "核销信息",
           link: "/business/verification",
-          icon: "activity"
+          icon: "verification"
         },
         {
           name: "排队信息",
           link: "/business/queue",
-          icon: "activity"
+          icon: "queue"
         },
         {
           name: "预订信息",
           link: "/business/booking",
-          icon: "activity"
+          icon: "booking"
         },
         {
           name: "点评信息",
           link: "/business/review",
-          icon: "activity"
+          icon: "review"
         }
       ]
     }
@@ -75,20 +77,69 @@ export default {
       text-decoration: none;
       color: #777;
       font-weight: bold;
-      div {
+      position: relative;
+      .icon {
         height: 50px;
         background-position: center 90%;
         background-size: 30%;
         background-repeat: no-repeat;
       }
-      div.activity {
-        background-image: url('image/icon-activity.png');
+      .indicator {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+      }
+      &--activity {
+        .icon {
+          background-image: url('image/icon-activity.png');
+        }
+        .indicator {
+          border-bottom: 2px solid $yellow;
+        }
+      }
+      &--trade {
+        .icon {
+          background-image: url('image/icon-trade.png');
+        }
+        .indicator {
+          border-bottom: 2px solid $orange;
+        }
+      }
+      &--verification {
+        .icon {
+          background-image: url('image/icon-verification.png');
+        }
+        .indicator {
+          border-bottom: 2px solid $blue;
+        }
+      }
+      &--queue {
+        .icon {
+          background-image: url('image/icon-queue.png');
+        }
+        .indicator {
+          border-bottom: 2px solid $red;
+        }
+      }
+      &--booking {
+        .icon {
+          background-image: url('image/icon-booking.png');
+        }
+        .indicator {
+          border-bottom: 2px solid $purple;
+        }
+      }
+      &--review {
+        .icon {
+          background-image: url('image/icon-review.png');
+        }
+        .indicator {
+          border-bottom: 2px solid $green;
+        }
       }
       h5 {
         margin: .2rem 0;
-      }
-      &--active {
-        border-bottom: 2px solid hotpink;
       }
     }
   }

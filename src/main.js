@@ -15,21 +15,21 @@ Vue.use(VueRouter)
 
 const routes = [{
   path: '/login', component: Login
-},{
+}, {
   path: '/business/campaign', component: Campaign
-},{
+}, {
   path: '/business/trade', component: Trade
-},{
+}, {
   path: '/business/verification', component: Verification
-},{
+}, {
   path: '/business/queue', component: Queue
-},{
+}, {
   path: '/business/booking', component: Booking
-},{
+}, {
   path: '/business/review', component: Review
-},{
+}, {
   path: '/dashboard', component: dashboard
-},{
+}, {
   path: '/shop', component: Shop
 }]
 

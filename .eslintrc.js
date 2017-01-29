@@ -1,5 +1,8 @@
 module.exports = {
-    "extends": "eslint:recommended",
+    "extends": [
+      // "eslint:recommended",
+       "vue"
+     ],
     "plugins": [
         "import"
     ]

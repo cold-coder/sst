@@ -146,7 +146,7 @@ export default {
         background-image: url('image/icon-shop.png');
       }
       &--active {
-        color: $secondary-yellow;
+        color: $yellow;
         font-size: 15px;
         div.business {
           background-image: url('image/icon-business-selected.png');

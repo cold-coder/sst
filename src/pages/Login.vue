@@ -36,7 +36,7 @@ export default {
     font-size: 24px;
     font-weight: bold;
     margin: .5rem auto;
-    color: $secondary-yellow;
+    color: $yellow;
   }
   &__input {
     display: block;
@@ -62,7 +62,7 @@ export default {
     margin: .8rem auto;
     padding: .2rem;
     font-size: 20px;
-    background-color: $secondary-yellow;
+    background-color: $yellow;
     -webkit-appearance: none;
     border: none;
     border-radius: 5px;
