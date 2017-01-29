@@ -23,8 +23,8 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
  |Task|Progress|
  |----|--------|
- |Framework| 40%|
- |Component| 0%|
+ |Framework| 50%|
+ |Component| 20%|
  |Pages| 0%|
 
 
@@ -35,13 +35,13 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Task|Progress|
 |----|--------|
 |Scaffolding| 50%|
-|Route Mgnt| 0%|
-|State Mgnt| 0%|
-|Style| 0%|
+|Route Mgnt| 70%|
+|State Mgnt| 60%|
+|Style| 30%|
 |Layout| 100%|
 |i18n| 0%|
 |Filter| 0%|
-|Config Mgnt| 0%|
+|Config Mgnt| 100%|
 
 ##### Component
 |Task|Progress|
@@ -49,11 +49,11 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Toast| 0%|
 |Confirm| 0%|
 |Side Menu| 100%|
-|Nav Bar| 70%|
+|Nav Bar| 100%|
 |Pagination| 0%|
 |Image Uploader| 0%|
 |Scroll Loader| 0%|
-|Modal| 0%|
+|Modal| 100%|
 |Toggle Button| 0%|
 |Chart| 0%|
 |Rich Text| 0%|

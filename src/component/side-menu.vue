@@ -18,39 +18,39 @@
 <script>
 export default {
   name: 'side-menu',
-  data() {
+  data () {
     return {
       menuItem: [
         {
-          name: "业务管理",
-          link: "/business/campaign",
-          icon: "business",
-          key: "business"
+          name: '业务管理',
+          link: '/business/campaign',
+          icon: 'business',
+          key: 'business'
         },
         {
-          name: "工作台",
-          link: "/dashboard",
-          icon: "dashboard",
-          key: "dashboard"
+          name: '工作台',
+          link: '/dashboard',
+          icon: 'dashboard',
+          key: 'dashboard'
         },
         {
-          name: "基本设置",
-          link: "/shop",
-          icon: "shop",
-          key: "shop"
+          name: '基本设置',
+          link: '/shop',
+          icon: 'shop',
+          key: 'shop'
         },
         {
-          name: "登录",
-          link: "/login",
-          icon: "business",
-          key: "login"
+          name: '登录',
+          link: '/demo',
+          icon: 'business',
+          key: 'login'
         }
       ]
     }
   },
   methods: {
     toggleMenu: () => {
-      document.getElementById("app").classList.toggle("show-menu")
+      document.getElementById('app').classList.toggle('show-menu')
     }
   }
 }
@@ -102,7 +102,7 @@ export default {
     width: $menu-width;
     transform: translateX(-$menu-width);
     bottom: 0;
-    z-index: 100;
+    z-index: 30;
     background-image: linear-gradient(to bottom,#081F2F, #0C283A,#283F4C);
     &-heading {
       height: 150px;

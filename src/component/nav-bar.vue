@@ -89,13 +89,15 @@ export default {
         bottom: 0;
         width: 100%;
         height: 3px;
+        border-bottom-width: 4px;
+        border-bottom-style: solid;
       }
       &--activity {
         .icon {
           background-image: url('image/icon-activity.png');
         }
         .indicator {
-          border-bottom: 2px solid $yellow;
+          border-bottom-color: $yellow;
         }
       }
       &--trade {
@@ -103,7 +105,7 @@ export default {
           background-image: url('image/icon-trade.png');
         }
         .indicator {
-          border-bottom: 2px solid $orange;
+          border-bottom-color: $orange;
         }
       }
       &--verification {
@@ -111,7 +113,7 @@ export default {
           background-image: url('image/icon-verification.png');
         }
         .indicator {
-          border-bottom: 2px solid $blue;
+          border-bottom-color: $blue;
         }
       }
       &--queue {
@@ -119,7 +121,7 @@ export default {
           background-image: url('image/icon-queue.png');
         }
         .indicator {
-          border-bottom: 2px solid $red;
+          border-bottom-color: $red;
         }
       }
       &--booking {
@@ -127,7 +129,7 @@ export default {
           background-image: url('image/icon-booking.png');
         }
         .indicator {
-          border-bottom: 2px solid $purple;
+          border-bottom-color: $purple;
         }
       }
       &--review {
@@ -135,7 +137,7 @@ export default {
           background-image: url('image/icon-review.png');
         }
         .indicator {
-          border-bottom: 2px solid $green;
+          border-bottom-color: $green;
         }
       }
       h5 {
