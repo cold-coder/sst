@@ -43,7 +43,7 @@ export default {
           name: '登录',
           link: '/demo',
           icon: 'business',
-          key: 'login'
+          key: 'demo'
         }
       ]
     }

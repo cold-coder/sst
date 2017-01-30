@@ -4,9 +4,9 @@
     <div class="modal__box" v-show="isModalShow">
       <div class="modal__box-guts">
         <div class="header">
-          <button class="pure-button" @click="hideModal">取消</button>
+          <button class="btn" @click="hideModal">取消</button>
           <slot name="title"></slot>
-          <button class="pure-button" @click="confirm">确认</button>
+          <button class="btn btn-warning" @click="confirm">确认</button>
         </div>
         <div class="body">
           <slot></slot>

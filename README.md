@@ -24,8 +24,8 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
  |Task|Progress|
  |----|--------|
  |Framework| 50%|
- |Component| 20%|
- |Pages| 0%|
+ |Component| 25%|
+ |Pages| 10%|
 
 
 ### Sub Tasks
@@ -50,6 +50,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Confirm| 0%|
 |Side Menu| 100%|
 |Nav Bar| 100%|
+|Dot Heading| 100%|
 |Pagination| 0%|
 |Image Uploader| 0%|
 |Scroll Loader| 0%|
@@ -64,13 +65,13 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |----|--------|
 |Login| 50%|
 |Dashboard| 0%|
-|Campaign| 0%|
+|Campaign| 30%|
 |Campaign Detail| 0%|
-|Trade| 0%|
+|Trade| 20%|
 |Verification| 0%|
-|Queue| 0%|
-|Booking| 0%|
-|Review| 0%|
+|Queue| 20%|
+|Booking| 20%|
+|Review| 20%|
 |Praise| 0%|
 |Shop Mgnt| 0%|
 |Scan Result| 0%|

@@ -71,6 +71,7 @@ export default {
     align-items: center;
     margin: 0 auto;
     padding: 0;
+    max-width: 1000px;
     &-item {
       flex: 1;
       text-align: center;
@@ -81,7 +82,7 @@ export default {
       .icon {
         height: 50px;
         background-position: center 90%;
-        background-size: 30%;
+        background-size: .8rem;
         background-repeat: no-repeat;
       }
       .indicator {

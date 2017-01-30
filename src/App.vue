@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style src="purecss"></style>
+<!-- <style src="purecss"></style> -->
 <style lang='scss'>
 @import "./stylesheets/_variable.scss";
 @import "./stylesheets/main.scss";

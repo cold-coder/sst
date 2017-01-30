@@ -1,5 +1,20 @@
 @charset "UTF-8";
 @import "mixins/_utilities";
+@import "_variable.scss";
+
+//from purecss
+@import "~purecss/build/base.css";
+@import "~purecss/build/forms.css";
+@import "~purecss/build/grids.css";
+@import "~purecss/build/grids-responsive.css";
+@import "~purecss/build/tables.css";
+
+// reset purecss
+.pure-form-aligned .pure-control-group label {
+  width: 6em;
+}
+
+// responsive rem setting
 html {
     font-size: 50px;
 }
@@ -29,6 +44,7 @@ body {
     margin: 0;
     font-size: 14px;
     font-family: "Times New Roman", "Microsoft YaHei", STXihei, serif;
+    color: #777;
 }
 
 .clearfix,
@@ -42,6 +58,13 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
 
 *:focus {
     outline: none;
+}
+
+.search-container,.table-container {
+  padding: .2rem;
+  margin: .2rem;
+  background-color: #FFF;
+  border: 1px solid $border-color;
 }
 
 @import "elements/_btn.scss";
