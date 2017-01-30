@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../stylesheets/_variable.scss";
+@import "../style/_variable.scss";
 .nav-bar {
   width: 100%;
   background-color: #FFF;

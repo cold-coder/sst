@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../stylesheets/_variable.scss";
+@import "../style/_variable.scss";
 .side-menu {
   &__link {
     position: fixed;

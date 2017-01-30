@@ -13,13 +13,17 @@
 </template>
 
 <script>
+import api from 'api'
 export default {
-  name: 'login'
+  name: 'login',
+  created: () => {
+    console.log(api.LOGIN)
+  }
 }
 </script>
 
 <style lang="scss">
-@import "../stylesheets/_variable.scss";
+@import "../style/_variable.scss";
 .login {
   text-align: center;
   padding-top: 2rem;

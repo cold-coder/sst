@@ -22,24 +22,27 @@
 <script>
 import Modal from '../component/modal.vue'
 export default {
-    name: 'demo',
-    components: {
-        Modal
-    },
-    data() {
-        return {
-            name: 'demo'
-        }
-    },
-    methods: {
-        showModal: function() {
-            this.$store.dispatch('showModal')
-        },
-        onModalConfirm: function() {
-            console.log('Modal 确认事件触发')
-            this.$store.dispatch('hideModal')
-        }
+  name: 'demo',
+  components: {
+    Modal
+  },
+  data () {
+    return {
+      name: 'demo'
     }
+  },
+  created: function () {
+    // this.$store.dispatch('fetchToken')
+  },
+  methods: {
+    showModal: function () {
+      this.$store.dispatch('showModal')
+    },
+    onModalConfirm: function () {
+      console.log('Modal 确认事件触发')
+      this.$store.dispatch('hideModal')
+    }
+  }
 }
 </script>
 

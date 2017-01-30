@@ -23,8 +23,8 @@ export default {
 
 <!-- <style src="purecss"></style> -->
 <style lang='scss'>
-@import "./stylesheets/_variable.scss";
-@import "./stylesheets/main.scss";
+@import "./style/_variable.scss";
+@import "./style/main.scss";
 #app {
   position: relative;
   padding-left: 0;

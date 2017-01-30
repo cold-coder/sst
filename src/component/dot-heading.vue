@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../stylesheets/_variable.scss";
+@import "../style/_variable.scss";
 .dot-heading {
   display: flex;
   align-items: center;
