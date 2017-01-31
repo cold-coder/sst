@@ -11,6 +11,9 @@ module.exports = {
           "anonymous": "always",
           "named": "always",
           "asyncArrow": "ignore"
+        }],
+      "camelcase": ["warn", {
+          "properties": "never"
         }]
       }
 };

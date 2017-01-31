@@ -3,21 +3,44 @@
     <img src="../assets/LOGO-Smartac.png" alt="ShopperConnect Logo" class="login__logo">
     <div class="login__version">版本： 3.0</div>
     <div class="login__title">商铺平台系统登录</div>
-    <input type="text" class="login__input login__input--username" placeholder="帐号">
-    <input type="password" class="login__input login__input--password" placeholder="密码">
+    <input type="text" class="login__input login__input--username" placeholder="帐号" v-model="username">
+    <input type="password" class="login__input login__input--password" placeholder="密码" v-model="password">
     <div class="login__remember">
       <label><input type="checkbox">记住密码</label>
     </div>
-    <button class="login__btn">登 录</button>
+    <button class="login__btn" @click="login">登 录</button>
   </div>
 </template>
 
 <script>
 import api from 'api'
+import md5 from 'md5'
 export default {
   name: 'login',
+  data () {
+    return {
+      password: '',
+      username: ''
+    }
+  },
   created: () => {
     console.log(api.LOGIN)
+  },
+  methods: {
+    login () {
+      this.$http.post(api.LOGIN, {
+        account_type: 2,
+        userid: this.username,
+        password: md5(this.password)
+      })
+      .then(res => {
+        if (!res.data.errcode) {
+          console.log(res.data.session_id)
+          window.sessionStorage.setItem('sessionId', res.data.session_id)
+          this.$router.push('/business/campaign')
+        }
+      })
+    }
   }
 }
 </script>

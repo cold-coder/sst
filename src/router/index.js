@@ -13,7 +13,7 @@ import Demo from '../pages/Demo.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   // mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [{
@@ -38,3 +38,18 @@ export default new Router({
     path: '/demo', component: Demo
   }]
 })
+
+/**
+ * 判断用户是否登录
+ */
+router.beforeEach((to, from, next) => {
+  console.log(`to -> ${to.path} | from -> ${from.path}`)
+  if (to.path !== '/login' && !window.sessionStorage.getItem('sessionId')) {
+    console.log('Not logined')
+    next('/login')
+    return
+  }
+  next()
+})
+
+export default router

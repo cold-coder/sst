@@ -2,8 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
-console.log(store.dispatch('fetchToken'))
+require('./misc/ajax.js')
 
 new Vue({
   el: '#app',

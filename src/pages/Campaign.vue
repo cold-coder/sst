@@ -33,11 +33,18 @@
 <script>
 import NavBar from '../component/nav-bar.vue'
 import DotHeading from '../component/dot-heading.vue'
+import api from 'api'
+
 export default {
   name: 'campaign',
   components: {
     NavBar,
     DotHeading
+  },
+  mounted () {
+    this.$http.post(api.CAMPAIGN_LIST, {
+      shop_id: '72518f28-adf0-2adc-1b56-6d4fb296d09b'
+    })
   }
 }
 </script>

@@ -34,7 +34,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 |Task|Progress|
 |----|--------|
-|Scaffolding| 50%|
+|Scaffolding| 70%|
 |Route Mgnt| 70%|
 |State Mgnt| 60%|
 |Style| 30%|

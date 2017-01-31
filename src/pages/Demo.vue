@@ -32,7 +32,6 @@ export default {
     }
   },
   created: function () {
-    // this.$store.dispatch('fetchToken')
   },
   methods: {
     showModal: function () {
