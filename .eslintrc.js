@@ -5,5 +5,12 @@ module.exports = {
      ],
     "plugins": [
         "import"
-    ]
+    ],
+    "rules": {
+      "space-before-function-paren": ["warn", {
+          "anonymous": "always",
+          "named": "always",
+          "asyncArrow": "ignore"
+        }]
+      }
 };

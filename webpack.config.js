@@ -46,7 +46,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.common.js'
+      'vue$': 'vue/dist/vue.common.js',
+      'api': path.resolve(__dirname, 'src/misc/api.js')
     }
   },
   devServer: {
