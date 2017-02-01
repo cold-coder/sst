@@ -44,7 +44,7 @@ const router = new Router({
  */
 router.beforeEach((to, from, next) => {
   console.log(`to -> ${to.path} | from -> ${from.path}`)
-  if (to.path !== '/login' && !window.sessionStorage.getItem('sessionId')) {
+  if (to.path !== '/login' && !window.sessionStorage.getItem('sst-sessionId')) {
     console.log('Not logined')
     next('/login')
     return

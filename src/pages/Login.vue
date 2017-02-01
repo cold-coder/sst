@@ -35,8 +35,8 @@ export default {
       })
       .then(res => {
         if (!res.data.errcode) {
-          console.log(res.data.session_id)
-          window.sessionStorage.setItem('sessionId', res.data.session_id)
+          window.sessionStorage.setItem('sst-sessionId', res.data.session_id)
+          window.sessionStorage.setItem('sst-userInfo', JSON.stringify(res.data.user_info))
           this.$router.push('/business/campaign')
         }
       })

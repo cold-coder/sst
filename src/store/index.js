@@ -26,6 +26,10 @@ const store = new Vuex.Store({
   getters: {
     isModalShow (state) {
       return state.isModalShow
+    },
+    shopId () {
+      const userInfo = JSON.parse(window.sessionStorage.getItem('sst-userInfo'))
+      return userInfo.shop_id
     }
   }
 })

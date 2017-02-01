@@ -64,7 +64,7 @@ const ajax = axios.create()
  */
 ajax.interceptors.request.use(function (config) {
   if (config.url !== api.LOGIN) {
-    config.data['session_id'] = window.sessionStorage.getItem('sessionId')
+    config.data['session_id'] = window.sessionStorage.getItem('sst-sessionId')
   }
   if (isTokenExpired()) {
     return fetchToken().then(() => {

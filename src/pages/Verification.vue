@@ -1,5 +1,6 @@
 <template lang="html">
   <div id="verification" class="verification">
+    <headerX></headerX>
     <nav-bar :active="2"></nav-bar>
     <section class="table-container">
       <dot-heading heading="核销信息" module="verification">
@@ -10,11 +11,13 @@
 </template>
 
 <script>
+import HeaderX from '../component/header.vue'
 import NavBar from '../component/nav-bar.vue'
 import DotHeading from '../component/dot-heading.vue'
 export default {
   name: 'verification',
   components: {
+    HeaderX,
     NavBar,
     DotHeading
   }
