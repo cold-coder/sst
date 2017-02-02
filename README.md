@@ -23,8 +23,8 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
  |Task|Progress|
  |----|--------|
- |Framework| 50%|
- |Component| 25%|
+ |Framework| 70%|
+ |Component| 40%|
  |Pages| 10%|
 
 
@@ -34,8 +34,8 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 |Task|Progress|
 |----|--------|
-|Scaffolding| 70%|
-|Route Mgnt| 70%|
+|Scaffolding| 80%|
+|Route Mgnt| 80%|
 |State Mgnt| 60%|
 |Style| 30%|
 |Layout| 100%|
@@ -51,11 +51,12 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Side Menu| 100%|
 |Nav Bar| 100%|
 |Dot Heading| 100%|
+|HeadingX| 100%|
 |Pagination| 0%|
 |Image Uploader| 0%|
 |Scroll Loader| 0%|
 |Modal| 100%|
-|Toggle Button| 0%|
+|Toggle Button| 100%|
 |Chart| 0%|
 |Rich Text| 0%|
 |Local Storage| 0%|
@@ -64,7 +65,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Task|Progress|
 |----|--------|
 |Login| 50%|
-|Dashboard| 0%|
+|Dashboard| 40%|
 |Campaign| 30%|
 |Campaign Detail| 0%|
 |Trade| 20%|

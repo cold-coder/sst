@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="side-menu">
-    <a v-on:click="toggleMenu" class="side-menu__link">
+    <!-- <a v-on:click="toggleMenu" class="side-menu__link">
       <span></span>
-    </a>
+    </a> -->
     <ul class="side-menu__menu">
       <div class="side-menu__menu-heading"></div>
       <div class="side-menu__menu-scan"></div>
@@ -49,9 +49,9 @@ export default {
     }
   },
   methods: {
-    toggleMenu: () => {
-      document.getElementById('app').classList.toggle('show-menu')
-    }
+    // toggleMenu: () => {
+    //   document.getElementById('app').classList.toggle('show-menu')
+    // }
   }
 }
 </script>

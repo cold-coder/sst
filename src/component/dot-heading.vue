@@ -40,10 +40,10 @@ export default {
   }
   &__dot {
     display: inline-block;
-    width: .5rem;
-    height: .5rem;
+    width: .6rem;
+    height: .6rem;
     border-radius: 50%;
-    background-color: red;
+    background-color: hotpink;
     &--campaign {
       background-color: $yellow;
     }
@@ -62,10 +62,22 @@ export default {
     &--review {
       background-color: $green;
     }
+    &--dashboard {
+      background-image: url('./image/icon-queue-heading.png');
+      background-size: cover;
+      background-color: transparent;
+      border-radius: 0;
+    }
+    &--setting {
+      background-image: url('./image/icon-setting-heading.png');
+      background-size: cover;
+      background-color: transparent;
+      border-radius: 0;
+    }
   }
   &__heading {
     display: inline-block;
-    margin-left: .1rem;
+    margin-left: .15rem;
     font-size: 18px;
   }
 }

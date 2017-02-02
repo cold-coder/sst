@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="header">
+    <div class="header__menu-button" @click="toggleSideMenu"></div>
     <div class="header__title">
       {{ shopName }}
     </div>
@@ -34,6 +35,9 @@ export default {
     toggleMenu () {
       this.isMenuShow = !this.isMenuShow
     },
+    toggleSideMenu () {
+      document.getElementById('app').classList.toggle('show-menu')
+    },
     logout () {
       window.sessionStorage.removeItem('sst-sessionId')
       this.isMenuShow = false
@@ -54,6 +58,18 @@ export default {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    &__menu-button {
+      width: 24px;
+      height: 24px;
+      background-image: url('./image/icon-menu.png');
+      background-repeat: no-repeat;
+      background-size: 24px;
+    };
+    @media (min-width: 48em) {
+      &__menu-button {
+        display: none;
+      }
+    }
     &__title {
       font-size: 22px;
       padding: .2rem .2rem .2rem 60px;

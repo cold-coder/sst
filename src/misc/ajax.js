@@ -22,7 +22,7 @@ const cacheToken = (token) => {
  * @return {Boolean} [description]
  */
 const isTokenExpired = () => {
-  const token = window.sessionStorage.getItem('sst-token')
+  const token = JSON.parse(window.sessionStorage.getItem('sst-token'))
   if (!token) {
     return true
   } else {
