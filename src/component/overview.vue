@@ -2,9 +2,9 @@
   <div class="overview">
     <div class="overview__item" v-for="item in overviews" :class="'overview__item--' + item.class">
       <div class="overview__item-info">
-        <h4>{{ item.title }}</h4>
-        <h4>{{ item.data }}</h4>
-        <h4 class="remark">{{ item.remark }}</h4>
+        <div>{{ item.title }}</div>
+        <div>{{ item.data }}</div>
+        <div class="remark">{{ item.remark }}</div>
       </div>
     </div>
   </div>
@@ -65,13 +65,13 @@ export default {
     justify-content: flex-start;
     border: 1px solid $border-color;
     border-radius: 4px;
-    margin-right: .25rem;
-    padding-left: 58px;
-    padding-right: 10px;
+    margin-right: .2rem;
+    padding-left: 53px;
+    padding-right: 5px;
     background-repeat: no-repeat;
     background-size: 52px;
     background-position: 6px center;
-    h4 {
+    div {
       margin: .15rem;
       font-size: 15px;
     }

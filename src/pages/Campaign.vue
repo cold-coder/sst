@@ -6,11 +6,11 @@
       <form class="pure-form pure-form-aligned">
         <fieldset>
           <div class="pure-g">
-            <div class="pure-control-group pure-u-1 pure-u-md-2-5">
+            <div class="pure-control-group pure-u-1 pure-u-lg-2-5">
               <label for="">活动名称</label>
               <input type="text" name="" value="" placeholder="活动名称">
             </div>
-            <div class="pure-control-group pure-u-1 pure-u-md-3-5">
+            <div class="pure-control-group pure-u-1 pure-u-lg-3-5">
               <label for="">活动时间</label>
               <input type="date">
               <span class="dash">-</span>
