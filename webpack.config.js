@@ -20,7 +20,7 @@ module.exports = {
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this nessessary.
             'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
             // 'css': ExtractTextPlugin.extract({
             //   loader: 'css-loader',
             //   fallbackLoader: 'vue-style-loader'
@@ -37,8 +37,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
+          limit: 25000,
           name: '[name].[ext]?[hash]'
         }
       }
