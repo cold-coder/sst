@@ -37,17 +37,17 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Scaffolding| 80%|
 |Route Mgnt| 80%|
 |State Mgnt| 60%|
-|Style| 30%|
+|Style| 40%|
 |Layout| 100%|
 |i18n| 0%|
-|Filter| 0%|
+|Filter| 10%|
 |Config Mgnt| 100%|
 
 ##### Component
 |Task|Progress|
 |----|--------|
 |Toast| 100%|
-|Confirm| 0%|
+|Confirm| 100%|
 |Side Menu| 100%|
 |Nav Bar| 100%|
 |Dot Heading| 100%|
@@ -76,3 +76,11 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Praise| 0%|
 |Shop Mgnt| 0%|
 |Scan Result| 0%|
+
+### Unresolved issues
+1. Event bus
+2. Async Components
+
+### Some tips
+1. No 2 ways props any more
+2. filter can only used inside mustache interpolations and v-bind expressions

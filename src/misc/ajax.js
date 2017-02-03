@@ -25,11 +25,10 @@ const isTokenExpired = () => {
   const token = JSON.parse(window.sessionStorage.getItem('sst-token'))
   if (!token) {
     return true
-  } else {
-    const now = new Date().valueOf()
-    if (now > token.expiresAt) {
-      return true
-    }
+  }
+  const now = new Date().valueOf()
+  if (now > token.expiresAt) {
+    return true
   }
   return false
 }
@@ -72,10 +71,9 @@ ajax.interceptors.request.use(function (config) {
       config.headers['authorization'] = `token ${t}`
       return config
     })
-  } else {
-    const t = JSON.parse(window.sessionStorage.getItem('sst-token')).token
-    config.headers['authorization'] = `token ${t}`
   }
+  const t = JSON.parse(window.sessionStorage.getItem('sst-token')).token
+  config.headers['authorization'] = `token ${t}`
   return config
 }, function (error) {
   console.error(error)

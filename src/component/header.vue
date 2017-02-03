@@ -5,7 +5,7 @@
       {{ shopName }}
     </div>
     <div class="header__user" @click="toggleMenu">
-      <div class="header__user-avatar"></div>
+      <img :src="avatar | loadImg" :alt="username" class="header__user-avatar">
       <div class="header__user-name">{{ username }}</div>
     </div>
     <ul class="header__menu" v-show="isMenuShow">
@@ -31,6 +31,7 @@ export default {
       isMenuShow: false,
       username: '-',
       shopName: '-',
+      avatar: '',
       bus: this.$root.$bus
     }
   },
@@ -46,6 +47,7 @@ export default {
     const userInfo = JSON.parse(window.sessionStorage.getItem('sst-userInfo'))
     this.username = userInfo.name
     this.shopName = userInfo.shop_name
+    this.avatar = userInfo.photo
   },
   methods: {
     toggleMenu () {
@@ -107,6 +109,15 @@ export default {
       background-repeat: no-repeat;
     }
     &__user {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-avatar {
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
       &-name {
         font-size: 18px;
       }
