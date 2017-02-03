@@ -60,6 +60,10 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
     outline: none;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .search-container,.table-container,.overview-container {
   padding: .2rem;
   margin: .2rem;
@@ -68,3 +72,4 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
 }
 
 @import "elements/_btn.scss";
+@import "elements/_toast.scss";

@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Login from '../pages/Login.vue'
-// import Campaign from '../pages/Campaign.vue'
-// import Trade from '../pages/Trade.vue'
-// import Verification from '../pages/Verification.vue'
-// import Queue from '../pages/Queue.vue'
-// import Booking from '../pages/Booking.vue'
-// import Review from '../pages/Review.vue'
-// import Dashboard from '../pages/dashboard.vue'
-// import Shop from '../pages/Shop.vue'
-// import Demo from '../pages/Demo.vue'
+import Login from '../pages/Login.vue'
+import Campaign from '../pages/Campaign.vue'
+import Trade from '../pages/Trade.vue'
+import Verification from '../pages/Verification.vue'
+import Queue from '../pages/Queue.vue'
+import Booking from '../pages/Booking.vue'
+import Review from '../pages/Review.vue'
+import Dashboard from '../pages/dashboard.vue'
+import Shop from '../pages/Shop.vue'
+import Demo from '../pages/Demo.vue'
 
 // const Login = r => require.ensure([], () => r(require('../pages/Login.vue')))
 // const Campaign = r => require.ensure([], () => r(require('../pages/Campaign.vue'), 'business'))
@@ -19,17 +19,17 @@ import Router from 'vue-router'
 // const Booking = r => require.ensure([], () => r(require('../pages/Booking.vue'), 'business'))
 // const Review = r => require.ensure([], () => r(require('../pages/Review.vue'), 'business'))
 
-const Dashboard = r => require.ensure([], () => r(require('../pages/Dashboard.vue')))
-const Shop = r => require.ensure([], () => r(require('../pages/Shop.vue')))
-const Demo = r => require.ensure([], () => r(require('../pages/Demo.vue')))
-
-const Login = resolve => require(['../pages/Login.vue'], resolve)
-const Campaign = resolve => require(['../pages/Campaign.vue'], resolve)
-const Trade = resolve => require(['../pages/Trade.vue'], resolve)
-const Verification = resolve => require(['../pages/Verification.vue'], resolve)
-const Queue = resolve => require(['../pages/Queue.vue'], resolve)
-const Booking = resolve => require(['../pages/Booking.vue'], resolve)
-const Review = resolve => require(['../pages/Review.vue'], resolve)
+// const Dashboard = r => require.ensure([], () => r(require('../pages/Dashboard.vue')))
+// const Shop = r => require.ensure([], () => r(require('../pages/Shop.vue')))
+// const Demo = r => require.ensure([], () => r(require('../pages/Demo.vue')))
+//
+// const Login = resolve => require(['../pages/Login.vue'], resolve)
+// const Campaign = resolve => require(['../pages/Campaign.vue'], resolve)
+// const Trade = resolve => require(['../pages/Trade.vue'], resolve)
+// const Verification = resolve => require(['../pages/Verification.vue'], resolve)
+// const Queue = resolve => require(['../pages/Queue.vue'], resolve)
+// const Booking = resolve => require(['../pages/Booking.vue'], resolve)
+// const Review = resolve => require(['../pages/Review.vue'], resolve)
 
 Vue.use(Router)
 
@@ -63,7 +63,7 @@ const router = new Router({
  * 判断用户是否登录
  */
 router.beforeEach((to, from, next) => {
-  console.log(`to -> ${to.path} | from -> ${from.path}`)
+  // console.log(`to -> ${to.path} | from -> ${from.path}`)
   if (to.path !== '/login' && !window.sessionStorage.getItem('sst-sessionId')) {
     console.log('Not logined')
     next('/login')

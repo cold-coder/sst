@@ -14,6 +14,7 @@ module.exports = {
         }],
       "camelcase": ["warn", {
           "properties": "never"
-        }]
+        }],
+      "no-new": "warn"
       }
 };

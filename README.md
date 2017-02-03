@@ -46,7 +46,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ##### Component
 |Task|Progress|
 |----|--------|
-|Toast| 0%|
+|Toast| 100%|
 |Confirm| 0%|
 |Side Menu| 100%|
 |Nav Bar| 100%|
