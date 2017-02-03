@@ -61,6 +61,7 @@ export default {
     },
     logout () {
       window.sessionStorage.removeItem('sst-sessionId')
+      window.sessionStorage.removeItem('sst-token')
       this.isMenuShow = false
       this.$router.push('/login')
     },

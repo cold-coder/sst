@@ -64,7 +64,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ##### Pages
 |Task|Progress|
 |----|--------|
-|Login| 50%|
+|Login| 70%|
 |Dashboard| 40%|
 |Campaign| 30%|
 |Campaign Detail| 0%|

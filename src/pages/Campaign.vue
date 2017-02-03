@@ -27,6 +27,7 @@
       <dot-heading heading="全部活动" module="campaign">
         <button class="btn btn-manual">手动签到</button>
       </dot-heading>
+      <paginate :current-page="2" :total-page="10" @paginate="pageChange"></paginate>
     </section>
   </div>
 </template>
@@ -35,6 +36,7 @@
 import HeaderX from '../component/header.vue'
 import NavBar from '../component/nav-bar.vue'
 import DotHeading from '../component/dot-heading.vue'
+import Paginate from '../component/paginate.vue'
 import api from 'api'
 
 export default {
@@ -42,12 +44,18 @@ export default {
   components: {
     HeaderX,
     NavBar,
-    DotHeading
+    DotHeading,
+    Paginate
   },
   mounted () {
     this.$http.post(api.CAMPAIGN_LIST, {
       shop_id: this.$store.getters.shopId
     })
+  },
+  methods: {
+    pageChange (page) {
+      console.log(page)
+    }
   }
 }
 </script>
