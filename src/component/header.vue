@@ -11,20 +11,36 @@
     <ul class="header__menu" v-show="isMenuShow">
       <li><a class="header__menu-item">中文</a></li>
       <li><a class="header__menu-item">English</a></li>
-      <li><a class="header__menu-item" @click="logout">用户退出</a></li>
+      <li><a class="header__menu-item" @click="logoutConfirm">用户退出</a></li>
     </ul>
+    <confirm @confirm="logout">
+      <div slot="msg">确认退出</div>
+    </confirm>
   </div>
 </template>
 
 <script>
+import Confirm from '../component/confirm.vue'
 export default {
   name: 'heading',
+  components: {
+    Confirm
+  },
   data () {
     return {
       isMenuShow: false,
       username: '-',
-      shopName: '-'
+      shopName: '-',
+      bus: this.$root.$bus
     }
+  },
+  created () {
+    // this.bus.$on('closeDropdown', (event) => {
+    //   if (this.isDescendant(this.$el.parentNode, event.target)) return // ignore the event if it is triggered inside current component element
+    //   if (this.isMenuShow) {
+    //     this.isMenuShow = false
+    //   }
+    // })
   },
   mounted () {
     const userInfo = JSON.parse(window.sessionStorage.getItem('sst-userInfo'))
@@ -38,10 +54,24 @@ export default {
     toggleSideMenu () {
       document.getElementById('app').classList.toggle('show-menu')
     },
+    logoutConfirm () {
+      this.$store.dispatch('showConfirm')
+    },
     logout () {
       window.sessionStorage.removeItem('sst-sessionId')
       this.isMenuShow = false
       this.$router.push('/login')
+    },
+    // http://stackoverflow.com/questions/2234979/how-to-check-in-javascript-if-one-element-is-contained-within-another
+    isDescendant: function (parent, child) {
+      var node = child.parentNode
+      while (node !== null) {
+        if (node === parent) {
+          return true
+        }
+        node = node.parentNode
+      }
+      return false
     }
   }
 }

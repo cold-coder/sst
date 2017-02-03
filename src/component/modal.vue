@@ -25,6 +25,7 @@ export default {
     },
     confirm: function () {
       this.$emit('confirm')
+      this.$store.dispatch('hideModal')
     }
   },
   computed: {

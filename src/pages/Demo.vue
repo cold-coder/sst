@@ -11,20 +11,35 @@
     <section class="demo__modal">
       <h2>Modal</h2>
       <button type="button" class="btn" @click="showModal">显示Modal</button>
+      <modal @confirm="onModalConfirm">
+        <span slot="title">Title from Demo</span>
+        <div>这里的表单会渲染到Modal的Body里面</div>
+      </modal>
     </section>
-    <modal @confirm="onModalConfirm">
-      <span slot="title">Title from Demo</span>
-      <div>这里的表单会渲染到Modal的Body里面</div>
-    </modal>
+    <section class="demo__alert">
+      <h2>Alert & Confirm</h2>
+      <button type="button" class="btn" @click="showAlert">显示Alert</button>
+      <button type="button" class="btn" @click="showConfirm">显示Confirm</button>
+      <alert>
+        <div slot="msg">打卡成功</div>
+      </alert>
+      <confirm @confirm="confirmExit">
+        <div slot="msg">确认退出</div>
+      </confirm>
+    </section>
   </div>
 </template>
 
 <script>
 import Modal from '../component/modal.vue'
+import Alert from '../component/alert.vue'
+import Confirm from '../component/confirm.vue'
 export default {
   name: 'demo',
   components: {
-    Modal
+    Modal,
+    Alert,
+    Confirm
   },
   data () {
     return {
@@ -39,7 +54,6 @@ export default {
     },
     onModalConfirm: function () {
       console.log('Modal 确认事件触发')
-      this.$store.dispatch('hideModal')
     },
     showSuccessToastr () {
       this.showToast('成功提示', 'success')
@@ -52,6 +66,15 @@ export default {
     },
     showInfoToastr () {
       this.showToast('信息提示', 'info')
+    },
+    showAlert () {
+      this.$store.dispatch('showAlert')
+    },
+    showConfirm () {
+      this.$store.dispatch('showConfirm')
+    },
+    confirmExit () {
+      console.log('Confirm 确认事件触发')
     }
   }
 }

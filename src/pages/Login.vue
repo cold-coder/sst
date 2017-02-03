@@ -75,8 +75,16 @@ export default {
     background: rgba(49, 48, 57, 0.4) 0.34rem center no-repeat;
     border: none;
     color: #FFF;
+    background-repeat: no-repeat;
+    background-size: .3rem;
     &:focus {
       outline: none;
+   }
+   &--username {
+     background-image: url('./image/user-icon.png');
+   }
+   &--password {
+     background-image: url('./image/password-icon.png');
    }
   }
   &__remember {
