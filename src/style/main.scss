@@ -16,10 +16,10 @@
 .pure-table {
   width: 100%;
   text-align: center;
-  border: 1px solid #EAEAEA;
+  border: 1px solid $table-border-color;
   margin-top: .3rem;
   td, th {
-    border-left: 1px solid #EAEAEA;
+    border-left: 1px solid $table-border-color;
     text-align: center;
     padding-top: .2rem;
     padding-bottom: .2rem;
@@ -27,8 +27,11 @@
   thead {
     color: #323232;
     background-color: #F5F7FA;
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid $table-border-color;
   }
+}
+.pure-table-bordered td {
+  border-bottom: 1px solid $table-border-color;
 }
 
 .pure-form-aligned .pure-control-group {
@@ -86,10 +89,14 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
 }
 
 .search-container,.table-container,.overview-container {
-  padding: .3rem;
+  padding: .35rem;
   margin: .25rem;
   background-color: #FFF;
   border: 1px solid $border-color;
+}
+
+.search-container {
+  padding-bottom: .1rem;
 }
 
 .no-data {

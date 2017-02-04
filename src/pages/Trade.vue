@@ -54,7 +54,7 @@
             </tr>
           </tbody>
         </table>
-        <paginate :current-page="currentPage" :total-page="totalPage" @paginate="pageChange"></paginate>
+        <paginate :current-page="pageIndex" :total-page="totalPage" @paginate="pageChange"></paginate>
       </div>
       <h4 v-show="list<=0" class="no-data">没有更多数据了</h4>
     </section>
@@ -77,14 +77,13 @@ export default {
   },
   data () {
     return {
-      pageIndex: 0,
+      pageIndex: 1,
       pageSize: 10,
-      currentPage: 1,
       totalPage: 0,
       list: [],
       tableHeader: [
         '发票编号',
-        '会员民称',
+        '会员名称',
         '消费日期',
         '交易金额',
         '交易类型'
@@ -113,7 +112,7 @@ export default {
         },
         page: {
           page_size: this.pageSize,
-          page_index: this.currentPage
+          page_index: this.pageIndex
         }
       }).then(res => {
         this.list = res.list
@@ -121,11 +120,11 @@ export default {
       })
     },
     pageChange (index) {
-      this.currentPage = index
+      this.pageIndex = index
       this.queryList()
     },
     search () {
-      this.currentPage = 1
+      this.pageIndex = 1
       this.totalPage = 0
       this.queryList()
     }

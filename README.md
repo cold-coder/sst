@@ -66,9 +66,9 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |----|--------|
 |Login| 70%|
 |Dashboard| 40%|
-|Campaign| 30%|
+|Campaign| 70%|
 |Campaign Detail| 0%|
-|Trade| 20%|
+|Trade| 100%|
 |Verification| 0%|
 |Queue| 20%|
 |Booking| 20%|
@@ -80,6 +80,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ### Unresolved issues
 1. Event bus
 2. Async Components
+3. Scroll to anchor positions
 
 ### Some tips
 1. No 2 ways props any more
