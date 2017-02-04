@@ -99,7 +99,7 @@ export default {
   methods: {
     queryList () {
       this.$http.post(api.TRADE_HISTORY, {
-        shop_id: this.$store.getters.shopId,
+        shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         condition_name: this.searchObj.name || undefined,
         time_rang: {
           time_begin: this.searchObj.startDate ? new Date(this.searchObj.startDate).valueOf() / 1000 : undefined,

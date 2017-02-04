@@ -5,6 +5,7 @@ import store from './store'
 import * as filters from './misc/filter.js'
 require('./misc/toast.js')
 require('./misc/ajax.js')
+// require('./misc/sst.js')
 
 // register global utility filters.
 Object.keys(filters).forEach(key => {

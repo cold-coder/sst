@@ -25,7 +25,7 @@ export default {
      * 获取按钮状态
      */
     this.$http.post(api.SHOP, {
-      shop_id: this.$store.getters.shopId
+      shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id
     }).then(res => {
       const bizInfo = res.shop.extend_info
       this.toggleList = [{
@@ -49,7 +49,7 @@ export default {
   methods: {
     mute (typeCode, isEnable) {
       this.$http.post(api.SET_BUSINESS, {
-        shop_id: this.$store.getters.shopId,
+        shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         type_code: typeCode,
         status_code: isEnable ? 1 : 0
       })

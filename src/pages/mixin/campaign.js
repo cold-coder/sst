@@ -12,7 +12,7 @@ const campaignMixin = {
       var endtime = searchObj.endDate ? new Date(searchObj.endDate).valueOf() / 1000 : undefined
 
       return this.$http.post(api.CAMPAIGN_LIST, {
-        shop_id: this.$store.getters.shopId,
+        shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         name: searchObj.activityName || undefined,
         start_time: starttime,
         end_time: endtime,

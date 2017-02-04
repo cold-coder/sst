@@ -25,7 +25,7 @@ const verificationMixin = {
      */
     queryVerificationList (searchObj, pageIndex, pageSize) {
       return this.$http.post(api.VERIFICATION_HISTORY, {
-        shop_id: this.$store.getters.shopId,
+        shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         history_type: 1, // 核销历史
         no: searchObj.couponNumber || undefined,
         used_time: searchObj.startDate ? new Date(searchObj.startDate).valueOf() / 1000 : undefined,

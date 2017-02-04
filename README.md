@@ -34,13 +34,13 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 |Task|Progress|
 |----|--------|
-|Scaffolding| 80%|
+|Scaffolding| 100%|
 |Route Mgnt| 80%|
 |State Mgnt| 60%|
-|Style| 40%|
+|Style| 80%|
 |Layout| 100%|
 |i18n| 0%|
-|Filter| 10%|
+|Filter| 20%|
 |Config Mgnt| 100%|
 
 ##### Component
@@ -52,7 +52,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Nav Bar| 100%|
 |Dot Heading| 100%|
 |HeadingX| 100%|
-|Pagination| 0%|
+|Pagination| 100%|
 |Image Uploader| 0%|
 |Scroll Loader| 0%|
 |Modal| 100%|
@@ -69,7 +69,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Campaign| 70%|
 |Campaign Detail| 0%|
 |Trade| 100%|
-|Verification| 0%|
+|Verification| 100%|
 |Queue| 20%|
 |Booking| 20%|
 |Review| 20%|
@@ -81,6 +81,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 1. Event bus
 2. Async Components
 3. Scroll to anchor positions
+4. Global function not working
 
 ### Some tips
 1. No 2 ways props any more

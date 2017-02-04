@@ -49,10 +49,6 @@ const store = new Vuex.Store({
     },
     isConfirmShow (state) {
       return state.isConfirmShow
-    },
-    shopId () {
-      const userInfo = JSON.parse(window.sessionStorage.getItem('sst-userInfo'))
-      return userInfo.shop_id
     }
   }
 })

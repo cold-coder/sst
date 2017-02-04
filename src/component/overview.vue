@@ -21,7 +21,7 @@ export default {
   },
   mounted () {
     this.$http.post(api.SHOP_SUMMARY, {
-      shop_id: this.$store.getters.shopId
+      shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id
     }).then(res => {
       const statistics = res.statistics
       this.overviews = [{

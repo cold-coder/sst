@@ -1,5 +1,5 @@
 (function (gloable) {
-  var domain = 'http://sr.smartac.co' // 不含端口或nginx路由
+  var domain = 'http://scqa.smartac.co' // 不含端口或nginx路由
 
   var apiServer = domain + '/api' // 含端口或nginx路由
   var resourceServer = domain + '/resource/' // 资源服务器
