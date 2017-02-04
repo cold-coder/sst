@@ -8,7 +8,7 @@ import toastr from 'toastr'
 toastr.options.positionClass = 'toast-top-center'
 toastr.options.preventDuplicates = true
 
-Vue.prototype.showToast = function (msg, type) {
+const showToast = function (msg, type) {
   switch (type) {
     case 'success':
       toastr.success(msg)
@@ -26,3 +26,7 @@ Vue.prototype.showToast = function (msg, type) {
       toastr.success(msg)
   }
 }
+
+Vue.prototype.showToast = showToast
+
+export default showToast

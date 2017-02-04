@@ -23,7 +23,7 @@ export default {
     this.$http.post(api.SHOP_SUMMARY, {
       shop_id: this.$store.getters.shopId
     }).then(res => {
-      const statistics = res.data.statistics
+      const statistics = res.statistics
       this.overviews = [{
         class: 'queue',
         data: statistics.queue_info,

@@ -41,7 +41,8 @@ export default {
   },
   watch: {
     totalPage: function () {
-      console.log(this.totalPage)
+      // console.log(this.totalPage)
+      this.current = this.currentPage
       this.pages = this.paginationCalc(this.current, this.totalPage)
       this.pagePos = this.pagePostionCalc(this.current, this.totalPage)
     }
@@ -55,7 +56,7 @@ export default {
       this.current = pageIndex
       this.pages = this.paginationCalc(this.current, this.totalPage)
       this.pagePos = this.pagePostionCalc(this.current, this.totalPage)
-      this.$emit('paginate', { page: this.current })
+      this.$emit('paginate', this.current)
     },
     goPrev () {
       this.current = this.current - 1
@@ -118,7 +119,7 @@ export default {
   padding: 0;
   border: 1px solid #e6e6e6;
   border-radius: 5px;
-  margin: 1rem auto;
+  margin: .3rem auto;
   text-align: center;
   &__btn{
     float: none;

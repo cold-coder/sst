@@ -27,7 +27,7 @@ export default {
     this.$http.post(api.SHOP, {
       shop_id: this.$store.getters.shopId
     }).then(res => {
-      const bizInfo = res.data.shop.extend_info
+      const bizInfo = res.shop.extend_info
       this.toggleList = [{
         title: '开启排队',
         key: 'queue',
