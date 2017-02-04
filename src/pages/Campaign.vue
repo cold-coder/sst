@@ -16,7 +16,7 @@
               <span class="dash">-</span>
               <input type="date" v-model="searchObj.endDate">
             </div>
-            <div class="pure-u-1">
+            <div class="pure-control-group pure-u-1">
               <button type="button" class="btn btn-warning btn-large btn-search" @click="search">查询</button>
             </div>
           </div>
