@@ -46,7 +46,7 @@
                   <span class="activity-status-closed" v-show="campaign.statusStr=='已结束'">{{ campaign.statusStr }}</span>
                   <span class="activity-status-open" v-show="campaign.statusStr=='未开始'">{{ campaign.statusStr }}</span>
               </td>
-              <td><a class="sm-business-activity-link" @click="goDetail(campaign)">详情</a>
+              <td><a class="sm-business-activity-link text-orange" @click="goDetail(campaign)">详情</a>
               </td>
             </tr>
           </tbody>

@@ -67,10 +67,10 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Login| 70%| 0%|
 |Dashboard| 40%| 0%|
 |Campaign| 70%| 0%|
-|Campaign Detail| 0%| 0%|
+|Campaign Detail| 100%| 0%|
 |Trade| 100%| 0%|
 |Verification| 100%| 0%|
-|Queue| 20%| 0%|
+|Queue| 100%| 0%|
 |Booking| 20%| 0%|
 |Review| 20%| 0%|
 |Praise| 0%| 0%|
