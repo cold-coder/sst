@@ -62,20 +62,20 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Local Storage| 0%|
 
 ##### Pages
-|Task|Progress|Test|
-|----|--------|----|
-|Login| 70%| 0%|
-|Dashboard| 40%| 0%|
-|Campaign| 70%| 0%|
-|Campaign Detail| 100%| 0%|
-|Trade| 100%| 0%|
-|Verification| 100%| 0%|
-|Queue| 100%| 0%|
-|Booking| 20%| 0%|
-|Review| 20%| 0%|
-|Praise| 0%| 0%|
-|Shop Mgnt| 0%| 0%|
-|Scan Result| 0%| 0%|
+|Task|Progress|
+|----|--------|
+|Login| 70%|
+|Dashboard| 40%|
+|Campaign| 70%|
+|Campaign Detail| 100%|
+|Trade| 100%|
+|Verification| 70%|
+|Queue| 100%|
+|Booking| 100%|
+|Review| 20%|
+|Praise| 0%|
+|Shop Mgnt| 0%|
+|Scan Result| 0%|
 
 ### Unresolved issues
 1. Event bus

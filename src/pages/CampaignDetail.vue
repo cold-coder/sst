@@ -195,7 +195,6 @@ export default {
       &__session {
         padding-left: .2rem;
         .session-select {
-          height: 100%;
           margin-top: .2rem;
         }
       }
@@ -206,7 +205,7 @@ export default {
         &-box {
           display: flex;
           flex-direction: column;
-          width: 40%;
+          width: 2.5rem;
           margin: 0 .1rem;
           border: 1px solid $border-color;
           border-radius: 5px;

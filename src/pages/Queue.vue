@@ -24,11 +24,11 @@
             <tr v-for="(q, index) in list">
               <td> {{ (pageIndex - 1) * pageSize + 1 + index }}</td>
               <td>{{ q.created_time|formatDate }}</td>
-              <td>{{ q.tel }}</td>
+              <td>{{ q.tel || '-' }}</td>
               <td>{{ q.tabletype || '-' }}</td>
               <td>{{ q.meals_num }}人</td>
-              <td>{{ q.number }}</td>
-              <td>{{ q.status_code }}</td>
+              <td>{{ q.number || '-' }}</td>
+              <td>{{ q.status_code | queueStatusFilter }}</td>
             </tr>
           </tbody>
         </table>

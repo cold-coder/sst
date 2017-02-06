@@ -68,3 +68,21 @@ export function checkinStatusFilter (statusCode) {
   }
   return '-'
 }
+
+/**
+ * 活动签到状态活动类型
+ *  0:已入座，1:未入座，2:已过号，3:已取消
+ * @type {[type]}
+ */
+export function queueStatusFilter (statusCode) {
+  const statusCodeMapping = {
+    0: '已入座',
+    1: '未入座',
+    2: '已过号',
+    3: '已取消'
+  }
+  if (statusCodeMapping.hasOwnProperty(statusCode)) {
+    return statusCodeMapping[statusCode]
+  }
+  return '-'
+}

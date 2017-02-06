@@ -13,6 +13,10 @@
 .pure-form-aligned .pure-control-group label {
   width: 6em;
 }
+.pure-form select {
+  height: 100%;
+}
+
 .pure-table {
   width: 100%;
   text-align: center;
@@ -25,7 +29,7 @@
     padding-bottom: .2rem;
   }
   thead {
-    color: #323232;
+    color: $black;
     background-color: #F5F7FA;
     border-bottom: 1px solid $table-border-color;
   }
