@@ -46,7 +46,7 @@
                   <span class="activity-status-closed" v-show="campaign.statusStr=='已结束'">{{ campaign.statusStr }}</span>
                   <span class="activity-status-open" v-show="campaign.statusStr=='未开始'">{{ campaign.statusStr }}</span>
               </td>
-              <td><a class="sm-business-activity-link" @click="goDetail(activity)">详情</a>
+              <td><a class="sm-business-activity-link" @click="goDetail(campaign)">详情</a>
               </td>
             </tr>
           </tbody>
@@ -110,6 +110,9 @@ export default {
       this.pageIndex = 1
       this.totalPage = 0
       this.queryList()
+    },
+    goDetail (campaign) {
+      this.$router.push('/business/campaign-detail/' + campaign.id)
     }
   }
 }

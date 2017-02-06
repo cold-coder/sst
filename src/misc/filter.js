@@ -49,3 +49,22 @@ export function campaignTypeFilter (type) {
   }
   return '-'
 }
+
+/**
+ * 活动签到状态活动类型
+ *  0:未确认，1:已确认，2:已取消，3:未通过 4:已签到
+ * @type {[type]}
+ */
+export function checkinStatusFilter (statusCode) {
+  const statusCodeMapping = {
+    0: '未确认',
+    1: '已确认',
+    2: '已取消',
+    3: '未通过',
+    4: '已签到'
+  }
+  if (statusCodeMapping.hasOwnProperty(statusCode)) {
+    return statusCodeMapping[statusCode]
+  }
+  return '-'
+}

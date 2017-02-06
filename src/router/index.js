@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../pages/Login.vue'
 import Campaign from '../pages/Campaign.vue'
+import CampaignDetail from '../pages/CampaignDetail.vue'
 import Trade from '../pages/Trade.vue'
 import Verification from '../pages/Verification.vue'
 import Queue from '../pages/Queue.vue'
@@ -40,6 +41,8 @@ const router = new Router({
     path: '/login', component: Login
   }, {
     path: '/business/campaign', component: Campaign
+  }, {
+    path: '/business/campaign-detail/:id', component: CampaignDetail
   }, {
     path: '/business/trade', component: Trade
   }, {

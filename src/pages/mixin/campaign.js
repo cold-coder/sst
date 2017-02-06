@@ -29,6 +29,19 @@ const campaignMixin = {
       })
     },
     /**
+     * 获取单个活动信息
+     */
+    queryCampaign (id) {
+      return this.$http.post(api.CAMPAIGN_LIST, {
+        id: id
+      }).then(res => {
+        if (res.campaign_info.length === 1) {
+          return res.campaign_info[0]
+        }
+        return {}
+      })
+    },
+    /**
     * 获取表格头配置
     * 2016/4/12 18:03
     */
@@ -42,7 +55,20 @@ const campaignMixin = {
         '统计'
       ]
     },
-
+    /**
+    * 获取签到列表表格头配置
+    * 2016/4/12 18:03
+    */
+    getDetailTableHead () {
+      return [
+        '会员名称',
+        '手机号码',
+        '报名人数',
+        '状态',
+        '签到时间',
+        '签到码'
+      ]
+    },
     /**
     * 手动签到
     * 2016/8/9
@@ -63,8 +89,6 @@ const campaignMixin = {
     /**
     * 根据签到码获取签到信息，扫码结果处用到
     * @param checkinCode
-    * @param cb
-    * @param errcb
     */
     getCheckinInfoByCode (checkinCode) {
       return this.$http.post(api.CAMPAIGN_CHECKIN_INFO, {
@@ -118,6 +142,98 @@ const campaignMixin = {
         return '进行中'
       }
       return '已结束'
+    },
+    /**
+     * 获取报名此活动的用户（签到列表）
+     *
+     */
+    querySignupMembers (campaignId, sessionId) {
+      return this.$http.post(api.CAMPAIGN_CHECKIN_INFO, {
+        campaign_id: campaignId,
+        seasons_id: sessionId ? String(sessionId) : undefined
+      }).then(res => {
+        return res.sign_info
+      })
+    },
+
+    /**
+     * 获取活动场次
+     * @author cheng.yao
+     * @date   2017-01-12
+     * @param  {String}   campaignId 活动ID
+     * @return {Array}              [description]
+     */
+    querySessionList (campaignId) {
+      return this.$http.post(api.CAMPAIGN_SESSION_LIST, {
+        campaign_id: campaignId
+      }).then(res => {
+        // const sessionAll = {
+        //   seasons_id: undefined,
+        //   seasons_name: '全部'
+        // }
+        // const sessionList = [].concat(sessionAll).concat(res.seasons)
+        return res.seasons
+      })
+    },
+
+    /**
+     * 判断报名是否是xx状态
+     * @author cheng.yao
+     * @private
+     * @date   2017-01-22
+     * @param  {[type]}   status 状态的枚举值
+     * @return {Boolean}         [description]
+     */
+    isSignupStatusOf (status) {
+      const signStatusMapping = {
+        'STATUS_PENDING': 0, // 未确认
+        'STATUS_CONFIRMED': 1, // 已确认
+        'STATUS_CANCELED': 2, // 已取消
+        'STATUS_REJECTED': 3, // 未通过
+        'STATUS_CHECKINED': 4 // 已签到
+      }
+      return function (signup) {
+        if (signStatusMapping[status] === signup.status) {
+          return true
+        }
+        return false
+      }
+    },
+
+    /**
+     * 计算活动统计数据(报名人数&签到人数)
+     * @author cheng.yao
+     * @date   2017-01-22
+     * @param  {Array}   signupList 报名列表
+     * @return {Object}             统计数据
+     */
+    calcCampaignStatistics (signupList) {
+      const isSignupStatusOfCheckined = this.isSignupStatusOf('STATUS_CHECKINED')
+      const isSignupStatusOfCanceled = this.isSignupStatusOf('STATUS_CANCELED')
+      const isSignupStatusOfRejected = this.isSignupStatusOf('STATUS_REJECTED')
+
+      // 签到人数
+      var checkinCount = signupList.reduce(function (pre, cur) {
+        if (isSignupStatusOfCheckined(cur)) {
+          const count = cur.person_num ? cur.person_num : 1
+          return pre + count
+        }
+        return pre
+      }, 0)
+
+      // 报名人数 总人数去除取消和拒绝的人数
+      var signinCount = signupList.reduce(function (pre, cur) {
+        if (isSignupStatusOfCanceled(cur) || isSignupStatusOfRejected(cur)) {
+          return pre + 0
+        }
+        const count = cur.person_num ? cur.person_num : 1
+        return pre + count
+      }, 0)
+
+      return {
+        signinCount,
+        checkinCount
+      }
     }
   }
 }
