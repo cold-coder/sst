@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     queryList () {
-      this.queryQueueList(this.pageIndex, this.pageSize, this.searchObj).then(res => {
+      this.queryQueueList(this.searchObj, this.pageIndex, this.pageSize).then(res => {
         this.list = res.list
         this.totalPage = res.count
       })

@@ -22,12 +22,12 @@ const queueMixin = {
      * 查询排队列表
      * @author cheng.yao
      * @date   2016-11-04
+     * @param  {Object}   searchObj [description]
      * @param  {int}   pageIndex [description]
      * @param  {int}   pageSize  [description]
-     * @param  {Object}   searchObj [description]
      * @return {[type]}             [description]
      */
-    queryQueueList (pageIndex, pageSize, searchObj) {
+    queryQueueList (searchObj, pageIndex, pageSize) {
       return this.$http.post(api.QUEUE_HISTORY, {
         shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         cust_name: searchObj.name,

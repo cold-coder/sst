@@ -86,3 +86,21 @@ export function queueStatusFilter (statusCode) {
   }
   return '-'
 }
+
+/**
+ * 活动签到状态活动类型
+ *  0:待审核，1:已审核，2:已拒绝，3:已审核并回复
+ * @type {[type]}
+ */
+export function reviewStatusFilter (statusCode) {
+  const statusCodeMapping = {
+    0: '待审核',
+    1: '已审核',
+    2: '已拒绝',
+    3: '已审核并回复'
+  }
+  if (statusCodeMapping.hasOwnProperty(statusCode)) {
+    return statusCodeMapping[statusCode]
+  }
+  return '-'
+}

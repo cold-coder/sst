@@ -141,7 +141,7 @@ export default {
   },
   methods: {
     queryList () {
-      this.queryReserveList(this.pageIndex, this.pageSize, this.searchObj).then(res => {
+      this.queryReserveList(this.searchObj, this.pageIndex, this.pageSize).then(res => {
         this.list = res.list
         this.totalPage = res.count
       })

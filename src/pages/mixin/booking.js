@@ -51,12 +51,12 @@ const bookingMixin = {
      * 查询预订列表
      * @author cheng.yao
      * @date   2016-11-04
+     * @param  {Object}   searchObj [description]
      * @param  {int}   pageIndex [description]
      * @param  {int}   pageSize  [description]
-     * @param  {Object}   searchObj [description]
      * @return {[type]}             [description]
      */
-    queryReserveList (pageIndex, pageSize, searchObj) {
+    queryReserveList (searchObj, pageIndex, pageSize) {
       return this.$http.post(api.RESERVE_HISTORY, {
         shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         condition_name: searchObj.custname || undefined, // 会员卡会或手机号
