@@ -109,6 +109,20 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
   margin-bottom: 5px;;
 }
 
+.avatar {
+  &--round {
+    border-radius: 50%;
+  }
+  &--sm {
+    width: 1rem;
+    height: 1rem;
+  }
+  &--md {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
 @import "elements/_btn.scss";
 @import "elements/_toast.scss";
 @import "elements/_modal.scss";

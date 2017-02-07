@@ -15,6 +15,10 @@ module.exports = {
       "camelcase": ["warn", {
           "properties": "never"
         }],
-      "no-new": "warn"
-      }
+      "no-new": "warn",
+      "max-len": ["warn", {
+        "code": 150,
+        "ignoreStrings": true
+      }]
+    },
 };

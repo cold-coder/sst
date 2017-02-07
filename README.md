@@ -73,7 +73,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Queue| 100%|
 |Booking| 100%|
 |Review| 20%|
-|Praise| 0%|
+|Praise| 100%|
 |Shop Mgnt| 0%|
 |Scan Result| 0%|
 

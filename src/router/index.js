@@ -8,6 +8,7 @@ import Verification from '../pages/Verification.vue'
 import Queue from '../pages/Queue.vue'
 import Booking from '../pages/Booking.vue'
 import Review from '../pages/Review.vue'
+import Praise from '../pages/Praise.vue'
 import Dashboard from '../pages/dashboard.vue'
 import Shop from '../pages/Shop.vue'
 import Demo from '../pages/Demo.vue'
@@ -53,6 +54,8 @@ const router = new Router({
     path: '/business/booking', component: Booking
   }, {
     path: '/business/review', component: Review
+  }, {
+    path: '/business/praise', component: Praise
   }, {
     path: '/dashboard', component: Dashboard
   }, {
