@@ -1,8 +1,6 @@
 <template lang="html">
   <div class="tab">
     <div class="tab__buttons">
-      <!-- <span class="btn tab__buttons-button" @click="show(1)" :class="{ 'tab__buttons-button--active': currTab === 1 }">报名确认</span>
-      <span class="btn tab__buttons-button" @click="show(2)" :class="{ 'tab__buttons-button--active': currTab === 2 }">点评审核</span> -->
       <span class="tab__buttons-button" v-for="(t, i) in tabs" @click="show(i+1)" :class="{ 'tab__buttons-button--active': currTab === i+1 }">{{t}}</span>
     </div>
     <div class="tab__body">

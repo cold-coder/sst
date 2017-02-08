@@ -57,7 +57,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Scroll Loader| 100%|
 |Modal| 100%|
 |Toggle Button| 100%|
-|Chart| 0%|
+|Chart| 70%|
 |Rich Text| 0%|
 |Local Storage| 0%|
 

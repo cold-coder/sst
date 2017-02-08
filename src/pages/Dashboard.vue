@@ -17,6 +17,10 @@
         <preview-review class="dashboard-preview" slot="tab2"></preview-review>
       </tab>
     </div>
+    <div class="chart-container">
+      <queue-trend class="dashboard-chart"></queue-trend>
+      <queue-trend class="dashboard-chart"></queue-trend>
+    </div>
   </div>
 </template>
 
@@ -30,6 +34,7 @@ import PreviewBooking from '../component/preview-booking.vue'
 import PreviewQueue from '../component/preview-queue.vue'
 import PreviewReview from '../component/preview-review.vue'
 import PreviewSignup from '../component/preview-signup.vue'
+import QueueTrend from '../component/queue-trend.vue'
 export default {
   name: 'dashboard',
   components: {
@@ -41,7 +46,8 @@ export default {
     PreviewBooking,
     PreviewQueue,
     PreviewReview,
-    PreviewSignup
+    PreviewSignup,
+    QueueTrend
   },
   data () {
     return {
@@ -64,6 +70,14 @@ export default {
     &:last-child {
       padding-left: .1rem;
     }
+  }
+}
+.chart-container {
+  display: flex;
+  margin: .25rem;
+  background-color: transparent;
+  .dashboard-chart {
+    width: 50%;
   }
 }
 </style>

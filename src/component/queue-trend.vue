@@ -1,0 +1,140 @@
+<template lang='html'>
+  <div class='queue-trend'>
+    <div class="queue-trend__header">
+      <div class="queue-trend__header-title">
+        排队增长趋势
+      </div>
+      <div class="queue-trend__header-buttons button-group">
+        <button class="btn button-group__button" @click="refreshChart('week')" :class="{ 'button-group__button--active': type === 'week'}">本周</button>
+        <button class="btn button-group__button" @click="refreshChart('month')" :class="{ 'button-group__button--active': type === 'month'}">本月</button>
+      </div>
+    </div>
+    <trend-chart :chart-data='chartData' :options='options'></trend-chart>
+  </div>
+</template>
+
+<script>
+import TrendChart from './chart/TrendChart'
+import { computeTrendingPeriod, filterTrendingData, paddingTrendingLabel } from './chart/util.js'
+import api from 'api'
+export default {
+  name: 'queue-trend',
+  components: {
+    TrendChart
+  },
+  data () {
+    return {
+      type: 'week',
+      chartData: {
+        labels: [],
+        datasets: [{
+          label: 'My First dataset',
+          fill: false,
+          lineTension: 0.4,
+          backgroundColor: '#72CE11',
+          borderColor: '#72CE11',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: '#72CE11',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 5,
+          pointHoverRadius: 5,
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: [],
+          spanGaps: false,
+          showLine: true
+        }]
+      },
+      options: {
+        title: {
+          display: false
+        },
+        legend: {
+          display: false
+        },
+        padding: 10
+      }
+    }
+  },
+  mounted () {
+    this.refreshChart('week')
+  },
+  methods: {
+    query (type) {
+      const period = computeTrendingPeriod(type)
+      const starttime = period.starttime.valueOf() / 1000
+      const endtime = period.endtime.valueOf() / 1000
+      this.$http.post(api.BOOK_REPORT, {
+        shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
+        time_horizon: {
+          time_begin: starttime,
+          time_end: endtime
+        }
+      }).then(res => {
+        this.chartData = Object.assign({}, this.chartData, {
+          labels: paddingTrendingLabel(type),
+          datasets: [{
+            // data: [...filterTrendingData(res.list)]
+            data: [10, 15, 2, 42, 2, 12, 15],
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: '#72CE11',
+            borderColor: '#72CE11',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: '#72CE11',
+            pointBackgroundColor: '#fff',
+            pointBorderWidth: 5,
+            pointHoverRadius: 5,
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            spanGaps: false,
+            showLine: true
+          }]
+        })
+      })
+    },
+    refreshChart (type) {
+      this.type = type
+      this.query(this.type)
+    }
+  }
+}
+</script>
+
+<style lang='scss'>
+.queue-trend {
+  background-color: #FFF;
+  padding: .2rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .1rem 0 .3rem 0;
+    &-title {
+      font-size: 16px;
+      padding-left: .8rem;
+      background: url('./image/icon-trend-queue.png') no-repeat;
+      background-size: .5rem;
+      background-position: 10px center;
+    }
+    .button-group {
+      &__button {
+        padding: 0.08rem .3rem;
+        font-size: 12px;
+        &--active {
+          background-color: #72CE11;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+</style>
