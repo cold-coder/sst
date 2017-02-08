@@ -157,6 +157,25 @@ const campaignMixin = {
     },
 
     /**
+     * 获取该店铺下所有的报名用户（Dashboard Preview）
+     *
+     */
+    queryShopSignupMembers (pageIndex, pageSize) {
+      return this.$http.post(api.CAMPAIGN_CHECKIN_INFO, {
+        shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
+        page: {
+          page_count: pageSize,
+          page_index: pageIndex
+        }
+      }).then(res => {
+        return {
+          list: res.sign_info,
+          noMoreData: res.sign_info.length < pageSize
+        }
+      })
+    },
+
+    /**
      * 获取活动场次
      * @author cheng.yao
      * @date   2017-01-12
@@ -167,11 +186,6 @@ const campaignMixin = {
       return this.$http.post(api.CAMPAIGN_SESSION_LIST, {
         campaign_id: campaignId
       }).then(res => {
-        // const sessionAll = {
-        //   seasons_id: undefined,
-        //   seasons_name: '全部'
-        // }
-        // const sessionList = [].concat(sessionAll).concat(res.seasons)
         return res.seasons
       })
     },

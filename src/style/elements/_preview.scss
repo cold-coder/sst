@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@import "../_variable.scss";
+.preview-dashboard {
+  height: 230px;
+  min-height: 230px;
+  overflow-y: scroll;
+  background-color: #FFF;
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    &-img {
+      margin-left: .2rem;
+      margin-top: .2rem;
+    }
+    &-info {
+      flex: 1;
+      padding: .2rem;
+      border-bottom: 1px solid $border-color;
+    }
+    .preview-info {
+      p {
+        margin: .1rem 0;
+      }
+      &__title {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

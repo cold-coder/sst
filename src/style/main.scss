@@ -93,7 +93,7 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
 }
 
 .search-container,.table-container,.overview-container {
-  padding: .35rem;
+  padding: .35rem .35rem .1rem .35rem;
   margin: .25rem;
   background-color: #FFF;
   border: 1px solid $border-color;
@@ -106,7 +106,6 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
 .no-data {
   text-align: center;
   opacity: .8;
-  margin-bottom: 5px;;
 }
 
 .avatar {
@@ -127,3 +126,4 @@ input[type='search'],input[type='text'],input[type='date'],input[type='number'] 
 @import "elements/_toast.scss";
 @import "elements/_modal.scss";
 @import "elements/_text.scss";
+@import "elements/_preview.scss";

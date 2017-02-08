@@ -54,7 +54,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |HeadingX| 100%|
 |Pagination| 100%|
 |Image Uploader| 0%|
-|Scroll Loader| 0%|
+|Scroll Loader| 100%|
 |Modal| 100%|
 |Toggle Button| 100%|
 |Chart| 0%|
@@ -65,7 +65,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Task|Progress|
 |----|--------|
 |Login| 70%|
-|Dashboard| 40%|
+|Dashboard| 70%|
 |Campaign| 70%|
 |Campaign Detail| 100%|
 |Trade| 100%|

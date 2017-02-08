@@ -6,6 +6,8 @@ import * as filters from './misc/filter.js'
 require('./misc/toast.js')
 require('./misc/ajax.js')
 // require('./misc/sst.js')
+const infiniteScroll = require('vue-infinite-scroll')
+Vue.use(infiniteScroll)
 
 // register global utility filters.
 Object.keys(filters).forEach(key => {
