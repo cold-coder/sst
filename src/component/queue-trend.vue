@@ -25,29 +25,26 @@ export default {
   data () {
     return {
       type: 'week',
+      dsConfig: {
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: '#72CE11',
+        borderColor: '#72CE11',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: '#72CE11',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 5,
+        pointHoverRadius: 5,
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10
+      },
       chartData: {
         labels: [],
-        datasets: [{
-          label: 'My First dataset',
-          fill: false,
-          lineTension: 0.4,
-          backgroundColor: '#72CE11',
-          borderColor: '#72CE11',
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: '#72CE11',
-          pointBackgroundColor: '#fff',
-          pointBorderWidth: 5,
-          pointHoverRadius: 5,
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: [],
-          spanGaps: false,
-          showLine: true
-        }]
+        datasets: []
       },
       options: {
         title: {
@@ -56,7 +53,17 @@ export default {
         legend: {
           display: false
         },
-        padding: 10
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              // setpSize: 1,
+              fixedStepSize: 1
+            }
+          }]
+        },
+        padding: 10,
+        maintainAspectRatio: false
       }
     }
   },
@@ -75,29 +82,13 @@ export default {
           time_end: endtime
         }
       }).then(res => {
+        const newDs = []
+        newDs[0] = Object.assign({}, this.dsConfig, {
+          data: [...filterTrendingData(res.list)]
+        })
         this.chartData = Object.assign({}, this.chartData, {
           labels: paddingTrendingLabel(type),
-          datasets: [{
-            // data: [...filterTrendingData(res.list)]
-            data: [10, 15, 2, 42, 2, 12, 15],
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: '#72CE11',
-            borderColor: '#72CE11',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: '#72CE11',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: 5,
-            pointHoverRadius: 5,
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            spanGaps: false,
-            showLine: true
-          }]
+          datasets: newDs
         })
       })
     },

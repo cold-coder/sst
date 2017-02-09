@@ -18,8 +18,8 @@
       </tab>
     </div>
     <div class="chart-container">
-      <queue-trend class="dashboard-chart"></queue-trend>
-      <queue-trend class="dashboard-chart"></queue-trend>
+      <queue-trend class="dashboard-chart pure-u-sm-1-2"></queue-trend><!--
+      --><queue-trend class="dashboard-chart pure-u-sm-1-2"></queue-trend>
     </div>
   </div>
 </template>
@@ -73,11 +73,15 @@ export default {
   }
 }
 .chart-container {
-  display: flex;
+  // display: flex;
   margin: .25rem;
   background-color: transparent;
   .dashboard-chart {
-    width: 50%;
+    // width: 50%;
+    height: 270px;
+    canvas {
+      max-height: 210px;
+    }
   }
 }
 </style>
