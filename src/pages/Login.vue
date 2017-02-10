@@ -36,7 +36,7 @@ export default {
       .then(res => {
         window.sessionStorage.setItem('sst-sessionId', res.session_id)
         window.sessionStorage.setItem('sst-userInfo', JSON.stringify(res.user_info))
-        this.$router.push('/business/campaign')
+        this.$router.replace('/dashboard')
       })
     }
   }

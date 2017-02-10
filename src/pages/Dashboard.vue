@@ -18,8 +18,12 @@
       </tab>
     </div>
     <div class="chart-container">
-      <queue-trend class="dashboard-chart pure-u-sm-1-2"></queue-trend><!--
-      --><queue-trend class="dashboard-chart pure-u-sm-1-2"></queue-trend>
+      <div class="pure-u-sm-1-2">
+      <queue-trend class="dashboard-chart"></queue-trend>
+    </div><!--
+    --><div class="pure-u-sm-1-2">
+        <booking-trend class="dashboard-chart"></booking-trend>
+      </div>
     </div>
   </div>
 </template>
@@ -35,6 +39,7 @@ import PreviewQueue from '../component/preview-queue.vue'
 import PreviewReview from '../component/preview-review.vue'
 import PreviewSignup from '../component/preview-signup.vue'
 import QueueTrend from '../component/queue-trend.vue'
+import BookingTrend from '../component/booking-trend.vue'
 export default {
   name: 'dashboard',
   components: {
@@ -47,7 +52,8 @@ export default {
     PreviewQueue,
     PreviewReview,
     PreviewSignup,
-    QueueTrend
+    QueueTrend,
+    BookingTrend
   },
   data () {
     return {
@@ -60,10 +66,12 @@ export default {
 <style lang="scss">
 .preview-container {
   display: flex;
+  flex-wrap: wrap;
   margin: .25rem;
   background-color: transparent;
   .tab {
     flex: 1;
+    min-width: 299px;
     &:first-child {
       padding-right: .1rem;
     }
@@ -74,10 +82,17 @@ export default {
 }
 .chart-container {
   // display: flex;
-  margin: .25rem;
+  margin: 0 .25rem .2rem .25rem;
   background-color: transparent;
+  &>div {
+    &:first-child {
+      padding-right: .1rem;
+    }
+    &:last-child {
+      padding-left: .1rem;
+    }
+  }
   .dashboard-chart {
-    // width: 50%;
     height: 270px;
     canvas {
       max-height: 210px;

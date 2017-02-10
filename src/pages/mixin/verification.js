@@ -59,17 +59,15 @@ const verificationMixin = {
     /**
      * 根据核销码获取核销信息，扫码处用到
      * @param code
-     * @param cb
-     * @param errcb
      */
-    getCouponInfoByCode (code, cb, errcb) {
+    getCouponInfoByCode (code) {
       return this.$http.post(api.QUERY_COUPON, {
         coupon_code: code
       }).then(res => {
-        if (res.ci && res.ci.cust_info) {
-          return res.ci.cust_info
+        if (res.ci) {
+          return res.ci
         }
-        return {}
+        return false
       })
     }
   }

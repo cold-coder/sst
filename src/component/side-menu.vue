@@ -5,7 +5,7 @@
     </a> -->
     <ul class="side-menu__menu">
       <div class="side-menu__menu-heading"></div>
-      <div class="side-menu__menu-scan"></div>
+      <router-link class="side-menu__menu-scan" to="/scan"></router-link>
       <router-link v-for="item in menuItem" :to="item.link"
        class="side-menu__menu-item" :class="{ 'side-menu__menu-item--active': $route.path.indexOf(item.key)>-1 }">
         <div :class="item.icon"></div>
@@ -109,6 +109,7 @@ export default {
       background:transparent url('../assets/LOGO-Smartac.png') center center no-repeat / 70%;
     }
     &-scan {
+      display: block;
       height: 75px;
       background:transparent url('image/icon-scan.png') center center no-repeat / 35%;
       position: relative;

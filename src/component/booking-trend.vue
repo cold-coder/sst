@@ -1,10 +1,10 @@
 <template lang='html'>
-  <div class='queue-trend'>
-    <div class="queue-trend__header">
-      <div class="queue-trend__header-title">
-        排队增长趋势
+  <div class='booking'>
+    <div class="booking__header">
+      <div class="booking__header-title">
+        预订增长趋势
       </div>
-      <div class="queue-trend__header-buttons button-group">
+      <div class="booking__header-buttons button-group">
         <button class="btn button-group__button" @click="refreshChart('week')" :class="{ 'button-group__button--active': type === 'week'}">本周</button>
         <button class="btn button-group__button" @click="refreshChart('month')" :class="{ 'button-group__button--active': type === 'month'}">本月</button>
       </div>
@@ -18,7 +18,7 @@ import TrendChart from './chart/TrendChart'
 import { computeTrendingPeriod, filterTrendingData, paddingTrendingLabel } from './chart/util.js'
 import api from 'api'
 export default {
-  name: 'queue-trend',
+  name: 'booking-trend',
   components: {
     TrendChart
   },
@@ -28,13 +28,13 @@ export default {
       dsConfig: {
         fill: false,
         lineTension: 0.1,
-        backgroundColor: '#72CE11',
-        borderColor: '#72CE11',
+        backgroundColor: '#C754F3',
+        borderColor: '#C754F3',
         borderCapStyle: 'butt',
         borderDash: [],
         borderDashOffset: 0.0,
         borderJoinStyle: 'miter',
-        pointBorderColor: '#72CE11',
+        pointBorderColor: '#C754F3',
         pointBackgroundColor: '#fff',
         pointBorderWidth: 5,
         pointHoverRadius: 5,
@@ -75,7 +75,7 @@ export default {
       const period = computeTrendingPeriod(type)
       const starttime = period.starttime.valueOf() / 1000
       const endtime = period.endtime.valueOf() / 1000
-      this.$http.post(api.QUEUE_REPORT, {
+      this.$http.post(api.BOOK_REPORT, {
         shop_id: JSON.parse(window.sessionStorage.getItem('sst-userInfo')).shop_id,
         time_horizon: {
           time_begin: starttime,
@@ -102,7 +102,7 @@ export default {
 
 <style lang='scss'>
 @import "../style/_variable.scss";
-.queue-trend {
+.booking {
   background-color: #FFF;
   margin: .1rem 0;
   padding: .2rem;
@@ -115,7 +115,7 @@ export default {
     &-title {
       font-size: 16px;
       padding-left: .8rem;
-      background: url('./image/icon-trend-queue.png') no-repeat;
+      background: url('./image/icon-trend-book.png') no-repeat;
       background-size: .5rem;
       background-position: 10px center;
     }
@@ -124,7 +124,7 @@ export default {
         padding: 0.08rem .3rem;
         font-size: 12px;
         &--active {
-          background-color: #72CE11;
+          background-color: #C754F3;
           color: #FFF;
         }
       }

@@ -97,7 +97,7 @@ const campaignMixin = {
         if (res.sign_info.length > 0) {
           return res.sign_info[0]
         }
-        return []
+        return false
       })
     },
 

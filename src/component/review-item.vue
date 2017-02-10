@@ -44,28 +44,28 @@
     <!-- 待审核 -->
     <div class="review-item__buttons" v-show="review.status_code === 0">
       <button class="review-item__buttons-button review-item__buttons-button--approve btn" @click="approve">通过</button>
-      <button class="review-item__buttons-button review-item__buttons-button--reply btn" @click="reply">通过并回复</button>
+      <button class="review-item__buttons-button review-item__buttons-button--reply btn text-yellow" @click="reply">通过并回复</button>
       <button class="review-item__buttons-button review-item__buttons-button--reject btn text-red" @click="reject">屏蔽</button>
     </div>
     <!-- 已审核 -->
     <div class="review-item__buttons" v-show="review.status_code === 1">
       <button class="review-item__buttons-button review-item__buttons-button--approve btn" disabled>通过</button>
-      <button class="review-item__buttons-button review-item__buttons-button--reply btn" @click="reply">通过并回复</button>
+      <button class="review-item__buttons-button review-item__buttons-button--reply btn text-yellow" @click="reply">通过并回复</button>
       <button class="review-item__buttons-button review-item__buttons-button--reject btn text-red" @click="reject">屏蔽</button>
     </div>
     <!-- 审核拒绝 -->
     <div class="review-item__buttons" v-show="review.status_code === 2">
       <button class="review-item__buttons-button review-item__buttons-button--approve btn" @click="approve">通过</button>
         <!-- 之前有回复 -->
-        <button v-show="review.reply" class="review-item__buttons-button review-item__buttons-button--reply btn" disabled>通过并回复</button>
+        <button v-show="review.reply" class="review-item__buttons-button review-item__buttons-button--reply btn text-yellow" disabled>通过并回复</button>
         <!-- 之前无回复 -->
-        <button v-show="!review.reply" class="review-item__buttons-button review-item__buttons-button--reply btn" @click="reply">通过并回复</button>
+        <button v-show="!review.reply" class="review-item__buttons-button review-item__buttons-button--reply btn text-yellow" @click="reply">通过并回复</button>
       <button class="review-item__buttons-button review-item__buttons-button--reject btn text-red" disabled>屏蔽</button>
     </div>
     <!-- 通过并回复 -->
     <div class="review-item__buttons" v-show="review.status_code === 3">
       <button class="review-item__buttons-button review-item__buttons-button--approve btn" disabled>通过</button>
-      <button class="review-item__buttons-button review-item__buttons-button--reply btn" disabled>通过并回复</button>
+      <button class="review-item__buttons-button review-item__buttons-button--reply btn text-yellow" disabled>通过并回复</button>
       <button class="review-item__buttons-button review-item__buttons-button--reject btn text-red" @click="reject">屏蔽</button>
     </div>
   </div>
@@ -117,12 +117,14 @@ export default {
       this.verify(this.review.id, statusCode).then(res => {
         this.review.status_code = statusCode
         this.showToast('操作成功')
+        this.isReplyBoxShow = false
       })
     },
     reject () {
       this.verify(this.review.id, 2).then(res => {
         this.review.status_code = 2 // 屏蔽
         this.showToast('操作成功')
+        this.isReplyBoxShow = false
       })
     },
     verify (reviewId, statusCode) {
@@ -222,17 +224,22 @@ export default {
      font-size: 16px;
      border-left: 1px solid $border-color;
      background-color: #F4F4F4;
+     background-repeat: no-repeat;
+     background-size: 22px;
      &:first-of-type {
        border-left: none;
      }
      &--approve {
-
+       background-image: url('./image/icon_approve.png');
+       background-position: calc(50% - 35px) center;
      }
      &--reply {
-
+       background-image: url('./image/icon_reply.png');
+       background-position: calc(50% - 60px) center;
      }
      &--reject {
-
+       background-image: url('./image/icon_reject.png');
+       background-position: calc(50% - 35px) center;
      }
    }
   }

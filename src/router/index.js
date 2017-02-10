@@ -12,6 +12,7 @@ import Praise from '../pages/Praise.vue'
 import Dashboard from '../pages/dashboard.vue'
 import Shop from '../pages/Shop.vue'
 import Demo from '../pages/Demo.vue'
+import Scan from '../pages/Scan.vue'
 
 // const Login = r => require.ensure([], () => r(require('../pages/Login.vue')))
 // const Campaign = r => require.ensure([], () => r(require('../pages/Campaign.vue'), 'business'))
@@ -62,6 +63,8 @@ const router = new Router({
     path: '/shop', component: Shop
   }, {
     path: '/demo', component: Demo
+  }, {
+    path: '/scan', component: Scan
   }]
 })
 

@@ -32,6 +32,8 @@ export default {
 <style lang="scss">
 @import "../style/_variable.scss";
 .tab {
+  margin: .1rem 0;
+  font-size: 16px;
   &__buttons {
     display: table;
     width: 100%;
