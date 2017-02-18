@@ -120,7 +120,7 @@ export default {
       tableHeader: this.getDetailTableHead()
     }
   },
-  mounted () {
+  activated () {
     this.queryCampaign(this.campaignId).then(res => {
       this.campaign = res
     })

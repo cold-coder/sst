@@ -64,8 +64,8 @@ const verificationMixin = {
       return this.$http.post(api.QUERY_COUPON, {
         coupon_code: code
       }).then(res => {
-        if (res.ci) {
-          return res.ci
+        if (res.ci && res.ci.coupon_info) {
+          return res.ci.coupon_info
         }
         return false
       })

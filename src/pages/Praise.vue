@@ -63,7 +63,7 @@ import DotHeading from '../component/dot-heading.vue'
 import Paginate from '../component/paginate.vue'
 import api from 'api'
 export default {
-  name: 'review',
+  name: 'praise',
   components: {
     HeaderX,
     NavBar,
@@ -86,7 +86,8 @@ export default {
       ]
     }
   },
-  mounted () {
+  activated () {
+    this.picked = 'praise'
     this.queryList()
   },
   methods: {

@@ -86,7 +86,10 @@ export default {
       }
     }
   },
-  mounted () {
+  // mounted () {
+  //   this.queryList()
+  // },
+  activated () {
     this.queryList()
   },
   methods: {

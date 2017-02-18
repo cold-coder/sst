@@ -1,10 +1,10 @@
 <template lang='html'>
-  <div class='booking'>
-    <div class="booking__header">
-      <div class="booking__header-title">
+  <div class='booking-trend'>
+    <div class="booking-trend__header">
+      <div class="booking-trend__header-title">
         预订增长趋势
       </div>
-      <div class="booking__header-buttons button-group">
+      <div class="booking-trend__header-buttons button-group">
         <button class="btn button-group__button" @click="refreshChart('week')" :class="{ 'button-group__button--active': type === 'week'}">本周</button>
         <button class="btn button-group__button" @click="refreshChart('month')" :class="{ 'button-group__button--active': type === 'month'}">本月</button>
       </div>
@@ -102,7 +102,7 @@ export default {
 
 <style lang='scss'>
 @import "../style/_variable.scss";
-.booking {
+.booking-trend {
   background-color: #FFF;
   margin: .1rem 0;
   padding: .2rem;

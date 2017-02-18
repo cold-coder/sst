@@ -77,8 +77,9 @@ export default {
       noMore: false
     }
   },
-  mounted () {
+  activated () {
     this.searchObj.status = this.statusList[1].id // 待审核
+    this.picked = 'review'
     this.queryList()
   },
   methods: {

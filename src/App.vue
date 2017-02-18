@@ -1,16 +1,24 @@
 <template>
-  <div id="app">
-    <side-menu></side-menu>
-    <router-view class="main"></router-view>
+  <div id="app" v-on:click.stop="closeDropdown($event)">
+      <side-menu></side-menu>
+      <keep-alive exclude="dashboard,shop,scan">
+        <router-view class="main"></router-view>
+      </keep-alive>
   </div>
 </template>
 
 <script>
 import SideMenu from './component/side-menu.vue'
+import Bus from './misc/bus.js'
 export default {
   name: 'app',
   components: {
     SideMenu
+  },
+  methods: {
+    closeDropdown (e) {
+      Bus.$emit('closeDropdown', e)
+    }
   }
 }
 </script>

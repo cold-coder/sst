@@ -8,14 +8,14 @@
         </div>
         <div class="scan__detail" v-show="result">
           <!-- 卡券 -->
-          <div v-show="type === 'coupon'">
+          <div v-if="type === 'coupon'">
             <div class="scan__item">
               <label class="scan__key">礼券编号：</label>
-              <div class="scan__value">{{}}</div>
+              <div class="scan__value">{{result.code}}</div>
             </div>
             <div class="scan__item">
               <label class="scan__key">状态：</label>
-              <div class="scan__value">{{}}</div>
+              <div class="scan__value" v-bind="result.coupon_info"></div>
             </div>
             <div class="scan__item">
               <label class="scan__key">名称：</label>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <!-- 活动 -->
-          <div v-show="type === 'activity'">
+          <div v-if="type === 'activity'">
             <div class="scan__item">
               <label class="scan__key">编号：</label>
               <div class="scan__value">{{}}</div>
@@ -54,7 +54,7 @@
             </div>
           </div>
           <!-- 编号无法识别 -->
-          <div v-show="type === 'error'">
+          <div v-if="type === 'error'">
             <div class="scan__item">
               <label class="scan__key">编号：</label>
               <div class="scan__value">{{result.code}}</div>
@@ -113,36 +113,41 @@ export default {
       } else {
         // 本地测试用
         // this.query('141585'); // 测试会员手机
-        // this.query('32028e8o84'); // 测试核销编号
-        this.query('K5tX7L6mQyKGg28QjbiaqA') // 测试活动签到码 13440
+        this.query('937s62257e') // 测试核销编号
+        // this.query('jxBE29BsRA-Af7iRIPetCw') // 测试活动签到码 13440
+        // this.query('...') // invalid code
       }
     },
     query: function (code) {
       // 先查签到码，再查礼券
       this.getCheckinInfoByCode(code).then(res => {
         if (res) {
+          // debugger
           this.result = res
           this.type = 'activity'
           this.result.code = code
           this.isScan = false
-          return true
+          throw 'is activity chekin code'
+        } else {
+          return this.getCouponInfoByCode(code)
         }
-        return this.getCouponInfoByCode(code)
       }).then(res => {
-        debugger
         if (res) {
           this.result = res
           this.type = 'coupon'
           this.isScan = false
-          return true
+          throw 'is coupon code'
         }
-        return Promise.reject()
-      }).catch(() => {
+        return
+      }).then(() => {
         // 出错的码
         this.type = 'error'
+        throw 'invalid code'
+      }).catch((result) => {
         this.result = {
           code: code
         }
+        console.log(result)
       })
     },
     isShowConfirm: function () {
@@ -245,7 +250,6 @@ export default {
     }
     &__value {
         text-align: right;
-        width: 197px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

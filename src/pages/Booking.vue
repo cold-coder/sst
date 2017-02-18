@@ -135,7 +135,7 @@ export default {
       }
     }
   },
-  mounted () {
+  activated () {
     this.searchObj.status = this.statusList[1].id // 待确认
     this.queryList()
   },

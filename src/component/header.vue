@@ -4,7 +4,7 @@
     <div class="header__title">
       {{ shopName }}
     </div>
-    <div class="header__user" @click="toggleMenu">
+    <div class="header__user" @click.stop="toggleMenu">
       <img :src="avatar | loadImg" :alt="username" class="header__user-avatar">
       <div class="header__user-name">{{ username }}</div>
     </div>
@@ -21,6 +21,7 @@
 
 <script>
 import Confirm from '../component/confirm.vue'
+import Bus from '../misc/bus.js'
 export default {
   name: 'heading',
   components: {
@@ -31,19 +32,19 @@ export default {
       isMenuShow: false,
       username: '-',
       shopName: '-',
-      avatar: '',
-      bus: this.$root.$bus
+      avatar: ''
     }
   },
-  created () {
-    // this.bus.$on('closeDropdown', (event) => {
-    //   if (this.isDescendant(this.$el.parentNode, event.target)) return // ignore the event if it is triggered inside current component element
-    //   if (this.isMenuShow) {
-    //     this.isMenuShow = false
-    //   }
-    // })
-  },
   mounted () {
+    console.log('header mounted')
+    Bus.$on('closeDropdown', function (event) {
+      // console.log(this.$el)
+      // console.info(event.target.parentNode)
+      if (this.isDescendant(this.$el, event.target)) return // ignore the event if it is triggered inside current component element
+      if (this.isMenuShow) {
+        this.isMenuShow = false
+      }
+    }.bind(this))
     const userInfo = JSON.parse(window.sessionStorage.getItem('sst-userInfo'))
     this.username = userInfo.name
     this.shopName = userInfo.shop_name
@@ -76,6 +77,9 @@ export default {
       }
       return false
     }
+  },
+  destroyed () {
+    Bus.$off('closeDropdown')
   }
 }
 </script>

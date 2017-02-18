@@ -93,7 +93,7 @@ export default {
       }
     }
   },
-  mounted () {
+  activated () {
     this.queryList()
   },
   methods: {

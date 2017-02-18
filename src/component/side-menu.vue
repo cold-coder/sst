@@ -49,9 +49,9 @@ export default {
     }
   },
   methods: {
-    // toggleMenu: () => {
-    //   document.getElementById('app').classList.toggle('show-menu')
-    // }
+  },
+  mounted () {
+    console.log('side menu mounted')
   }
 }
 </script>
