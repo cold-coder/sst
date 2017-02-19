@@ -3,12 +3,14 @@
     <div class="modal__overlay" v-show="isModalShow"></div>
     <div class="modal__box" v-show="isModalShow">
       <div class="modal__box-guts">
-        <div class="header">
+        <div class="modal__header">
           <button class="btn" @click="hideModal">取消</button>
-          <slot name="title"></slot>
+          <div class="modal__header-title">
+            <slot name="title"></slot>
+          </div>
           <button class="btn btn-warning" @click="confirm">确认</button>
         </div>
-        <div class="body">
+        <div class="modal__body">
           <slot></slot>
         </div>
       </div>
@@ -25,7 +27,7 @@ export default {
     },
     confirm: function () {
       this.$emit('confirm')
-      this.$store.dispatch('hideModal')
+      // this.$store.dispatch('hideModal')
     }
   },
   computed: {
@@ -37,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../style/_variable.scss";
 .modal {
   &__overlay {
     position: fixed;
@@ -68,17 +71,23 @@ export default {
       height: 100%;
       overflow: auto;
       border-radius: 4px;
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: .2rem;
-        background-color: #F5F7FA;
-      }
-      .body {
-        padding: .2rem;
-      }
     }
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: .2rem;
+    background-color: #F5F7FA;
+    &-title {
+      font-size: 16px;
+      color: $black;
+      font-weight: bold;
+    }
+  }
+  &__body {
+    padding: .2rem;
+    text-align: center;
   }
 }
 </style>

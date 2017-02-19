@@ -76,8 +76,8 @@ const campaignMixin = {
     manualCheckin (checkinInfo) {
       if (checkinInfo) {
         return this.$http.post(api.CAMPAIGN_CHECKIN, {
-          campaign_id: checkinInfo.campaign_id,
-          checkin_code: checkinInfo.checkin_code,
+          campaign_id: checkinInfo.campaignId,
+          checkin_code: checkinInfo.checkinCode,
           checkin_source: 2 // 商铺平台
         }).then(res => {
           return res
@@ -94,7 +94,7 @@ const campaignMixin = {
       return this.$http.post(api.CAMPAIGN_CHECKIN_INFO, {
         checkin_code: checkinCode
       }).then(res => {
-        if (res.sign_info.length > 0) {
+        if (res.sign_info.length === 1) {
           return res.sign_info[0]
         }
         return false

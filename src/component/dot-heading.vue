@@ -30,6 +30,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   line-height: .6rem;
   margin-top: -.2rem;
   padding: .25rem .2rem;

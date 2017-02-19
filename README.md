@@ -24,7 +24,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
  |Task|Progress|
  |----|--------|
  |Framework| 70%|
- |Component| 60%|
+ |Component| 80%|
  |Pages| 30%|
 
 
@@ -75,10 +75,10 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 |Review| 90%|
 |Praise| 100%|
 |Shop Mgnt| 0%|
-|Scan Result| 0%|
+|Scan Result| 50%|
 
 ### Unresolved issues
-1. Event bus
+1. ~~Event bus~~
 2. Async Components
 3. Scroll to anchor positions
 4. Global function not working

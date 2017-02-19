@@ -25,7 +25,7 @@
     </section>
     <section class="table-container">
       <dot-heading heading="全部活动" module="campaign">
-        <button class="btn btn-manual">手动签到</button>
+        <button class="btn btn-manual" @click="showModal">手动签到</button>
       </dot-heading>
       <div v-show="list.length > 0">
         <table class="pure-table pure-table-bordered">
@@ -55,6 +55,42 @@
       </div>
       <h4 v-show="list<=0" class="no-data">没有更多数据了</h4>
     </section>
+    <!-- 手动核销弹出框 -->
+    <modal @confirm="doCheckin" class="checkin-modal">
+      <span slot="title">手动签到</span>
+      <form class="pure-form pure-form-aligned">
+        <fieldset>
+          <div class="pure-control-group">
+            <label for="checkin-code">签到码</label>
+            <input type="search" name="checkin-code" placeholder="请输入签到码" v-model="checkinCode">
+            <span class="icon icon--scan"></span>
+          </div>
+          <!--签到码对应的信息-->
+          <div class="pure-control-group checkin-info">
+            <h4 class="checkin-info__title">用户报名信息</h4>
+            <section class="checkin-info__content" v-show="checkinInfo.checkinCode">
+              <div class="pure-u-1">
+                <label for="">会员姓名：</label>
+                <span class="text-black">{{ checkinInfo.username }}</span>
+              </div>
+              <div class="pure-u-1">
+                <label for="">手机号：</label>
+                <span class="text-black">{{ checkinInfo.mobile }}</span>
+              </div>
+              <div class="pure-u-1">
+                <label for="">会员姓名：</label>
+                <span class="text-black">{{ checkinInfo.amount }}</span>
+              </div>
+              <div class="pure-u-1">
+                <label for="">报名状态：</label>
+                <span class="text-black">{{ checkinInfo.status | checkinStatusFilter }}</span>
+              </div>
+            </section>
+            <h4 v-show="!checkinInfo.checkinCode">-</h4>
+          </div>
+        </fieldset>
+      </form>
+    </modal>
   </div>
 </template>
 
@@ -63,7 +99,9 @@ import HeaderX from '../component/header.vue'
 import NavBar from '../component/nav-bar.vue'
 import DotHeading from '../component/dot-heading.vue'
 import Paginate from '../component/paginate.vue'
+import Modal from '../component/modal.vue'
 import campaignMixin from './mixin/campaign.js'
+import debounce from 'lodash.debounce'
 
 export default {
   name: 'campaign',
@@ -71,7 +109,8 @@ export default {
     HeaderX,
     NavBar,
     DotHeading,
-    Paginate
+    Paginate,
+    Modal
   },
   mixins: [campaignMixin],
   data () {
@@ -83,6 +122,15 @@ export default {
       tableHeader: this.getTableHead(),
       searchObj: {
 
+      },
+      checkinCode: '',
+      checkinInfo: {
+        username: '',
+        mobile: '',
+        amount: '',
+        status: null,
+        campaignId: null,
+        checkinCode: null
       }
     }
   },
@@ -116,10 +164,74 @@ export default {
     },
     goDetail (campaign) {
       this.$router.push('/business/campaign-detail/' + campaign.id)
+    },
+    showModal: function () {
+      // reset checkinInfo
+      this.checkinInfo.checkinCode = null
+      this.checkinCode = null
+      this.$store.dispatch('showModal')
+    },
+    /**
+     * 手动签到
+     * @return {[type]} [description]
+     */
+    doCheckin: function () {
+      if (!this.checkinInfo.checkinCode) {
+        this.showToast('无效报名信息', 'error')
+        return
+      }
+      this.manualCheckin(this.checkinInfo).then(() => {
+        this.showToast('签到成功', 'success')
+        this.$store.dispatch('hideModal')
+      })
+    },
+    /**
+     * 查询报名信息
+     * @type {[type]}
+     */
+    queryCheckinInfo: debounce(function (code) {
+      this.getCheckinInfoByCode(code).then(res => {
+        if (res) {
+          this.checkinInfo.username = res.name
+          this.checkinInfo.mobile = res.phone
+          this.checkinInfo.amount = res.person_num
+          this.checkinInfo.status = res.status
+          this.checkinInfo.campaignId = res.campaign_id
+          this.checkinInfo.checkinCode = res.checkin_code
+        } else {
+          this.checkinInfo.checkinCode = null
+        }
+      })
+    }, 500)
+  },
+  watch: {
+    checkinCode: function (newCode) {
+      this.queryCheckinInfo(newCode)
     }
   }
 }
 </script>
 
 <style lang="scss">
+.checkin-modal {
+  .icon {
+    &--scan {
+      margin-left: .2rem;
+      display: inline-block;
+      height: 25px;
+      width: 25px;
+      background:transparent url('../assets/image/icon-scan.png') center center no-repeat / cover;
+      vertical-align: middle;
+    }
+  }
+  .checkin-info {
+    &__title {
+      // padding: .1rem;
+    }
+    &__content {
+      text-align: left;
+      padding-left: 2rem;
+    }
+  }
+}
 </style>
