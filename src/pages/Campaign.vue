@@ -55,7 +55,7 @@
       </div>
       <h4 v-show="list<=0" class="no-data">没有更多数据了</h4>
     </section>
-    <!-- 手动核销弹出框 -->
+    <!-- 手动签到弹出框 -->
     <modal @confirm="doCheckin" class="checkin-modal">
       <span slot="title">手动签到</span>
       <form class="pure-form pure-form-aligned">

@@ -104,3 +104,41 @@ export function reviewStatusFilter (statusCode) {
   }
   return '-'
 }
+
+/**
+ * 卡券状态
+ * @author cheng.yao
+ * @date   2017-02-20
+ * @param  {[type]}   statusCode [description]
+ * @return {[type]}              [description]
+ */
+export function couponStatusFilter (statusCode) {
+  const statusCodeMapping = {
+    1: '未使用',
+    2: '已使用',
+    3: '已过期'
+  }
+  if (statusCodeMapping.hasOwnProperty(statusCode)) {
+    return statusCodeMapping[statusCode]
+  }
+  return '-'
+}
+
+/**
+ * 卡券类型
+ * @author cheng.yao
+ * @date   2017-02-20
+ * @param  {[type]}   statusCode [description]
+ * @return {[type]}              [description]
+ */
+export function couponCategoryFilter (statusCode) {
+  const statusCodeMapping = {
+    '1': '抵用券',
+    '2': '折扣券',
+    '4': '商品券'
+  }
+  if (statusCodeMapping.hasOwnProperty(statusCode)) {
+    return statusCodeMapping[statusCode]
+  }
+  return '-'
+}

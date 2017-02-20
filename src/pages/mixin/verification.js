@@ -49,7 +49,7 @@ const verificationMixin = {
      */
     useCoupon (couponInfo) {
       return this.$http.post(api.DESTORY_COUPON, {
-        coupon_no: couponInfo.couponNum,
+        coupon_no: couponInfo.couponNo,
         remark: couponInfo.remark
       }).then(res => {
         return '核销成功'
