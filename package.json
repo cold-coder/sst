@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --host 0.0.0.0",
-    "build": "cross-env NODE_ENV=production webpack --progress"
+    "build": "cross-env NODE_ENV=production webpack --progress",
+    "deploy-preview": "rsync -anv ./ --exclude=node_modules --exclude=.git --exclude=src yaocheng@bananasusu.com:/home/yaocheng/sst",
+    "deploy": "rsync -azP ./ --exclude=node_modules --exclude=.git --exclude=src yaocheng@bananasusu.com:/home/yaocheng/sst"
   },
   "dependencies": {
     "axios": "^0.15.3",
